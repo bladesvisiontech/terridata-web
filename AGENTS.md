@@ -192,6 +192,24 @@ Las páginas son Server Components. Solo llevan `"use client"` las primitivas de
 motion, el header, el menú de acceso y los visuales animados. Se mantienen
 delgados.
 
+## Identidad de git
+
+El repositorio tiene identidad **local**, distinta de la global de la máquina:
+
+```
+user.name   ventori2026-ui
+user.email  ventori2026@gmail.com
+```
+
+No es una preferencia: Vercel rechaza el despliegue si el correo del autor del
+commit no corresponde a una cuenta de GitHub con acceso al equipo. El mensaje
+que aparece es «the commit email could not be matched to a GitHub account», y
+el despliegue queda bloqueado sin más aviso.
+
+Si vuelve a pasar, **no se reescribe el historial**: Vercel solo mira el commit
+de cabeza de cada push, así que basta con un commit nuevo —aunque sea vacío—
+hecho con la identidad correcta.
+
 ## Pendientes con el cliente
 
 Marcados en el código con `PENDIENTE` o `PROVISIONAL`:
