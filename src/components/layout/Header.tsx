@@ -74,7 +74,7 @@ export function Header() {
               aria-label={`${COMPANY.name} — Inicio`}
               className="inline-flex min-h-11 shrink-0 items-center"
             >
-              <Logo />
+              <Logo priority />
             </Link>
 
             <nav aria-label="Navegación principal" className="hidden lg:block">

@@ -1,6 +1,5 @@
-import { MapPin } from "lucide-react";
-
 import { Stagger, StaggerItem } from "@/components/motion/Stagger";
+import { BrandImage } from "@/components/ui/BrandImage";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { SectionHeading } from "@/components/ui/SectionHeading";
@@ -29,15 +28,19 @@ export function Cases() {
               key={item.id}
               className="flex flex-col overflow-hidden rounded-2xl border border-ink/12 bg-cream-50"
             >
-              {/* Espacio reservado para la fotografía del municipio.
-                  La proporción está fijada para que la imagen real no
-                  desplace nada al entrar. */}
-              <div
-                aria-hidden
-                className="cadastral-grid relative aspect-[16/9] w-full bg-green-50"
-              >
-                <span className="absolute inset-0 flex items-center justify-center">
-                  <MapPin strokeWidth={1.25} className="size-8 text-green-500/40" />
+              {/* Fotografía de ambientación, no del municipio real: el
+                  material propio lo tiene que aportar el cliente. Por eso
+                  el pie dice «paisaje de referencia» y no el nombre del
+                  municipio. La proporción está fijada para que la foto
+                  definitiva no desplace nada al entrar. */}
+              <div className="relative">
+                <BrandImage
+                  media={item.image}
+                  sizes="(max-width: 1024px) 100vw, 640px"
+                  className="aspect-[16/9] w-full"
+                />
+                <span className="absolute bottom-3 right-3 rounded-full bg-ink/55 px-2.5 py-1 font-mono text-[0.5625rem] uppercase tracking-[0.12em] text-cream-50 backdrop-blur-sm">
+                  Paisaje de referencia
                 </span>
               </div>
 

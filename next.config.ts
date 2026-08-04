@@ -36,9 +36,17 @@ import type { NextConfig } from "next";
  * el nonce no aplica a atributos `style`, y Tailwind y framer-motion
  * escriben estilos directamente sobre los elementos.
  */
+/**
+ * React usa `eval` en desarrollo para reconstruir los stack traces del
+ * servidor en el navegador. Sin `'unsafe-eval'` el overlay de errores
+ * queda inutilizado. En producción ni React ni Next lo necesitan, así
+ * que ahí no se concede.
+ */
+const isDev = process.env.NODE_ENV === "development";
+
 const CSP = [
   "default-src 'self'",
-  "script-src 'self' 'unsafe-inline'",
+  `script-src 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval'" : ""}`,
   "style-src 'self' 'unsafe-inline'",
   // next/font autoaloja las tipografías durante el build.
   "font-src 'self' data:",

@@ -1,85 +1,68 @@
+import Image from "next/image";
+
 import { COMPANY } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
+import logoInverso from "../../../public/brand/logo-inverso.png";
+import logo from "../../../public/brand/logo.png";
+
 /**
- * ⚠️ PROVISIONAL — a la espera del logo vectorial oficial.
+ * Logo oficial de Terridata.
  *
- * El isotipo es una manzana catastral: cuatro predios de distinto
- * tamaño dentro de un mismo perímetro. Uno va sólido (el predio
- * consultado) y el resto en trazo, que es exactamente lo que hace el
- * visor al seleccionar un predio.
+ * Se importa el PNG en vez de referenciar la ruta como cadena para que
+ * Next conozca las dimensiones en tiempo de compilación y reserve el
+ * hueco: sin eso la cabecera da un salto al cargar la imagen.
  *
- * Cuando llegue el SVG oficial, se reemplaza únicamente el contenido
- * de <Isotype>. Las medidas y el espaciado del lockup ya están
- * definidos y no deberían cambiar.
+ * La variante inversa es el mismo archivo con la palabra recoloreada a
+ * crema. El verde de marca sobre el verde 900 del pie da 1.6:1 y
+ * sencillamente no se lee.
+ *
+ * `priority` porque va en la cabecera: es parte de la primera pantalla
+ * y no debe cargarse en diferido.
  */
 
-function Isotype({ className }: { className?: string }) {
-  return (
-    <svg
-      viewBox="0 0 32 32"
-      fill="none"
-      aria-hidden
-      className={cn("size-8 shrink-0", className)}
-    >
-      <rect
-        x="1"
-        y="1"
-        width="30"
-        height="30"
-        rx="1"
-        stroke="currentColor"
-        strokeWidth="1.75"
-        opacity="0.35"
-      />
-      <path
-        d="M1 12.5h30M12.5 1v30"
-        stroke="currentColor"
-        strokeWidth="1.25"
-        opacity="0.35"
-      />
-      <rect x="1" y="1" width="11.5" height="11.5" fill="currentColor" />
-      <path
-        d="M21.5 12.5v19"
-        stroke="currentColor"
-        strokeWidth="1.25"
-        opacity="0.35"
-      />
-    </svg>
-  );
-}
+/** Proporción del archivo recortado: 1782 × 501. */
+const RATIO = 1782 / 501;
 
 type LogoProps = {
   className?: string;
-  /** `inverse` para fondos oscuros. */
   tone?: "default" | "inverse";
+  /** Alto en píxeles. El ancho se deduce de la proporción. */
+  height?: number;
   showTagline?: boolean;
+  priority?: boolean;
 };
 
-export function Logo({ className, tone = "default", showTagline = false }: LogoProps) {
+export function Logo({
+  className,
+  tone = "default",
+  height = 34,
+  showTagline = false,
+  priority = false,
+}: LogoProps) {
+  const inverse = tone === "inverse";
+
   return (
-    <span className={cn("inline-flex items-center gap-3", className)}>
-      <Isotype className={tone === "inverse" ? "text-cream-200" : "text-green-500"} />
-      <span className="flex flex-col leading-none">
+    <span className={cn("inline-flex flex-col", className)}>
+      <Image
+        src={inverse ? logoInverso : logo}
+        alt={`${COMPANY.name} — ${COMPANY.tagline}`}
+        height={height}
+        width={Math.round(height * RATIO)}
+        priority={priority}
+        className="h-auto w-auto"
+        style={{ height, width: "auto" }}
+      />
+      {showTagline ? (
         <span
           className={cn(
-            "text-[1.0625rem] font-extrabold tracking-[-0.02em]",
-            tone === "inverse" ? "text-cream-50" : "text-ink",
+            "eyebrow mt-2.5",
+            inverse ? "text-cream-300" : "text-ink-500",
           )}
         >
-          {COMPANY.name}
+          {COMPANY.tagline}
         </span>
-        {showTagline ? (
-          <span
-            className={cn(
-              "eyebrow mt-1.5",
-              tone === "inverse" ? "text-cream-300" : "text-ink-500",
-            )}
-          >
-            {COMPANY.tagline}
-          </span>
-        ) : null}
-      </span>
+      ) : null}
     </span>
   );
 }

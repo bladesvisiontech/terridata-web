@@ -1,4 +1,6 @@
+import { Reveal } from "@/components/motion/Reveal";
 import { Stagger, StaggerItem } from "@/components/motion/Stagger";
+import { BrandImage } from "@/components/ui/BrandImage";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { SectionHeading } from "@/components/ui/SectionHeading";
@@ -8,11 +10,21 @@ export function Challenge() {
   return (
     <Section tone="cream">
       <Container>
-        <SectionHeading
-          eyebrow={CHALLENGE.eyebrow}
-          headline={CHALLENGE.headline}
-          body={CHALLENGE.body}
-        />
+        <div className="grid items-end gap-12 lg:grid-cols-[1.15fr_1fr] lg:gap-16">
+          <SectionHeading
+            eyebrow={CHALLENGE.eyebrow}
+            headline={CHALLENGE.headline}
+            body={CHALLENGE.body}
+          />
+
+          <Reveal delay={0.2} distance={26}>
+            <BrandImage
+              media="retoDispersion"
+              sizes="(max-width: 1024px) 100vw, 560px"
+              className="aspect-[4/3] rounded-2xl lg:aspect-[5/4]"
+            />
+          </Reveal>
+        </div>
 
         <Stagger
           as="ul"

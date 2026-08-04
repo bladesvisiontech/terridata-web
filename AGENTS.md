@@ -60,6 +60,37 @@ Dos familias: **Montserrat** (la del deck) para todo el texto, y **JetBrains
 Mono** para etiquetas, índices, coordenadas y cifras. La mono es la voz «de
 datos» del sistema y no se usa para prosa.
 
+## Fotografía
+
+Toda foto pasa por `<BrandImage>`. Nunca se usa `next/image` suelto en una
+sección: las fotos vienen de autores distintos y sin un tratamiento común una
+página con doce imágenes parece un tablero de recortes. El tratamiento son dos
+capas —verde en `multiply`, crema en `soft-light`— sobre una imagen
+desaturada; es el duotono del deck, atenuado.
+
+Los medios se descargan con `npm run media`, que resuelve el plan de
+`scripts/media-plan.mjs` contra Pexels —o Unsplash, si existe
+`UNSPLASH_ACCESS_KEY`— y fija cada elección en `media.lock.json` para que dos
+ejecuciones no barajen las fotos.
+
+**La curación es obligatoria y manual.** La búsqueda automática acierta con los
+conceptos concretos (una vista aérea, un mercado) y falla con los abstractos:
+«data dashboard» devolvió pantallas de trading de criptomonedas, «storefront»
+un local con rótulo de Quebec y «messy desk» un puñado de lápices. Para esos
+casos está `node scripts/preview-media.mjs "consulta"`, que monta una hoja de
+contactos numerada; se elige a la vista y se fija con
+`node scripts/preview-media.mjs "consulta" clave índice`. Cada elección manual
+queda justificada en un comentario dentro de `media-plan.mjs`.
+
+Dos reglas de honestidad, ambas de cara al cliente:
+
+1. Ninguna foto de stock puede presentarse como un municipio cliente. Las
+   tarjetas de casos llevan el pie «paisaje de referencia» hasta que Terridata
+   aporte material propio.
+2. Ninguna ilustración puede presentarse como una captura de la plataforma.
+   `PlatformFrame` y `CadastralMap` son diagramas declarados como
+   provisionales.
+
 ## Motion
 
 Toda animación pasa por las primitivas de `src/components/motion/`. No se usa
@@ -119,6 +150,10 @@ petición**.
 Una CSP que solo admita `'self'` en `script-src` bloquea los scripts de arranque
 de Next: React no hidrata y todo lo que dependa de JS se queda congelado en su
 estado inicial —que, con estas animaciones, significa **una página en blanco**—.
+
+`'unsafe-eval'` se concede **solo en desarrollo**: React lo usa para reconstruir
+los stack traces del servidor en el navegador y sin él el overlay de errores
+queda inutilizado. En producción no se concede.
 
 `style-src` sí lleva `'unsafe-inline'`: el nonce no aplica a atributos `style`, y
 Tailwind y framer-motion escriben estilos sobre los elementos.

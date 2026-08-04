@@ -10,6 +10,8 @@
  * gana el municipio, después cómo se llama el módulo.
  */
 
+import type { MediaKey } from "@/content/media";
+
 export type ModuleIcon =
   | "map"
   | "layers"
@@ -33,6 +35,8 @@ export type EcosystemModule = {
   /** Dependencias del municipio que lo usan a diario. */
   users: readonly string[];
   icon: ModuleIcon;
+  /** Fotografía de ambientación. Clave de `src/content/media.ts`. */
+  image: MediaKey;
 };
 
 export const MODULES: readonly EcosystemModule[] = [
@@ -53,6 +57,7 @@ export const MODULES: readonly EcosystemModule[] = [
     integrations: ["gestion-catastral", "gestion-tributaria", "planeacion-urbanismo", "cartera-y-cobro", "analitica-territorial", "portal-ciudadano"],
     users: ["Planeación", "Hacienda", "Catastro", "Jurídica", "Alcaldía"],
     icon: "map",
+    image: "moduloVisor",
   },
   {
     id: "gestion-catastral",
@@ -71,6 +76,7 @@ export const MODULES: readonly EcosystemModule[] = [
     integrations: ["visor-geografico", "gestion-tributaria", "planeacion-urbanismo", "analitica-territorial"],
     users: ["Catastro", "Planeación", "Hacienda"],
     icon: "layers",
+    image: "moduloCatastral",
   },
   {
     id: "gestion-tributaria",
@@ -89,6 +95,7 @@ export const MODULES: readonly EcosystemModule[] = [
     integrations: ["gestion-catastral", "visor-geografico", "cartera-y-cobro", "analitica-territorial", "portal-ciudadano"],
     users: ["Hacienda", "Tesorería", "Alcaldía"],
     icon: "coins",
+    image: "moduloTributaria",
   },
   {
     id: "cartera-y-cobro",
@@ -107,6 +114,7 @@ export const MODULES: readonly EcosystemModule[] = [
     integrations: ["gestion-tributaria", "visor-geografico", "analitica-territorial", "portal-ciudadano"],
     users: ["Hacienda", "Tesorería", "Jurídica"],
     icon: "receipt",
+    image: "moduloCartera",
   },
   {
     id: "planeacion-urbanismo",
@@ -125,6 +133,7 @@ export const MODULES: readonly EcosystemModule[] = [
     integrations: ["visor-geografico", "gestion-catastral", "gestion-tributaria", "analitica-territorial"],
     users: ["Planeación", "Urbanismo", "Atención al Ciudadano"],
     icon: "compass",
+    image: "moduloPlaneacion",
   },
   {
     id: "hacienda-ica",
@@ -142,6 +151,7 @@ export const MODULES: readonly EcosystemModule[] = [
     integrations: ["gestion-tributaria", "cartera-y-cobro", "analitica-territorial"],
     users: ["Hacienda", "Tesorería"],
     icon: "briefcase",
+    image: "moduloHacienda",
   },
   {
     id: "analitica-territorial",
@@ -159,6 +169,7 @@ export const MODULES: readonly EcosystemModule[] = [
     integrations: ["gestion-catastral", "gestion-tributaria", "planeacion-urbanismo", "visor-geografico", "portal-ciudadano"],
     users: ["Alcaldía", "Hacienda", "Planeación", "Gobernaciones"],
     icon: "chart",
+    image: "moduloAnalitica",
   },
   {
     id: "portal-ciudadano",
@@ -177,5 +188,6 @@ export const MODULES: readonly EcosystemModule[] = [
     integrations: ["gestion-tributaria", "cartera-y-cobro", "gestion-catastral", "planeacion-urbanismo"],
     users: ["Atención al Ciudadano", "Ciudadanía"],
     icon: "users",
+    image: "moduloPortal",
   },
 ] as const;

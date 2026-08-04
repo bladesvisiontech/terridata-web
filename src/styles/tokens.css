@@ -1,29 +1,29 @@
 /* ============================================================
    Terridata — tokens de marca
-   Paleta extraída del deck institucional (Canva, 2026).
+   Verde y crema muestreados del logo oficial (public/brand/logo.png).
    Ver AGENTS.md para las restricciones de contraste.
    ============================================================ */
 
 @theme {
   /* --- Verde institucional -------------------------------- */
-  /* 500 es el verde de marca del deck (#367F62).             */
+  /* 500 es el verde exacto del logo oficial (#387E66).        */
   /* 800 es el único verde válido como texto sobre crema.     */
   --color-green-50: #edf5f1;
   --color-green-100: #d6e8df;
   --color-green-200: #afd1c1;
   --color-green-300: #7fb49d;
   --color-green-400: #52977c;
-  --color-green-500: #367f62;
+  --color-green-500: #387e66;
   --color-green-600: #2b6650;
   --color-green-700: #24523f;
   --color-green-800: #1b4534;
   --color-green-900: #133024;
 
   /* --- Crema / arena -------------------------------------- */
-  /* 50 es el fondo base del sitio. 200 es el crema del deck. */
+  /* 50 es el fondo base. 200 es el crema exacto del logo.     */
   --color-cream-50: #fffdf8;
   --color-cream-100: #fef6e9;
-  --color-cream-200: #fce7c3;
+  --color-cream-200: #ffebc6;
   --color-cream-300: #f5d49c;
   --color-cream-400: #e8b96d;
 
@@ -50,9 +50,7 @@
   --font-sans: var(--font-montserrat), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-jetbrains), ui-monospace, "SF Mono", monospace;
 
-  /* Escala fluida. El mínimo está calculado contra 375 px de
-     ancho útil y la palabra más larga del copy ("Inteligencia"). */
-  /* El mínimo está calculado contra 335 px de ancho útil (teléfono
+  /* Escala fluida. El mínimo está calculado contra 335 px de ancho útil (teléfono
      de 375 px menos los márgenes) y la línea móvil más larga del
      titular, «su municipio en». Subirlo hace que refluya. */
   --text-display-xl: clamp(2.25rem, 1.15rem + 4.7vw, 5.5rem);

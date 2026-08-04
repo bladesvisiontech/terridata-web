@@ -4,6 +4,7 @@ import { Counter } from "@/components/motion/Counter";
 import { Reveal } from "@/components/motion/Reveal";
 import { TextReveal } from "@/components/motion/TextReveal";
 import { ButtonLink } from "@/components/ui/Button";
+import { BrandImage } from "@/components/ui/BrandImage";
 import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Section } from "@/components/ui/Section";
@@ -67,8 +68,27 @@ export function Hero() {
           </Reveal>
         </div>
 
+        {/* El visor montado sobre una vista aérea del territorio, que es
+            como lo pedía el documento de navegación: la plataforma
+            apoyada sobre el terreno real que administra. */}
         <Reveal trigger="mount" delay={0.35} distance={30} className="mt-14 lg:mt-16">
-          <PlatformFrame />
+          <div>
+            <BrandImage
+              media="heroTerritorio"
+              // El duotono fuerte apagaba demasiado el municipio. Aquí la
+              // foto es el argumento, así que se deja reconocible.
+              treatment="tint"
+              priority
+              sizes="(max-width: 1024px) 100vw, 1320px"
+              className="aspect-[4/3] rounded-3xl sm:aspect-[16/8] lg:aspect-[21/9]"
+            />
+            {/* El visor sube sobre la foto en vez de taparla entera: el
+                margen negativo va en porcentaje del ancho, así el solape
+                es el mismo en cualquier tamaño de pantalla. */}
+            <div className="relative z-10 mx-auto -mt-[22%] w-[94%] max-w-4xl sm:-mt-[16%] lg:-mt-[15%]">
+              <PlatformFrame />
+            </div>
+          </div>
         </Reveal>
 
         <div className="mt-14 grid gap-10 border-t border-ink/10 pt-8 lg:grid-cols-[auto_1fr] lg:items-center lg:gap-16">

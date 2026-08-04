@@ -81,9 +81,15 @@ export default function ProductosPage() {
               body={PRODUCTOS_INTRO.body}
             />
 
-            <Stagger as="ul" delay={0.2} className="flex flex-col gap-px bg-ink/12">
+            {/* Separadores como borde de cada elemento: un contenedor con
+                fondo enseñaría su sobrante al estirarse. */}
+            <Stagger as="ul" delay={0.2} className="flex flex-col self-start">
               {PRODUCTOS_INTRO.points.map((point) => (
-                <StaggerItem as="li" key={point.index} className="bg-cream-200 py-6">
+                <StaggerItem
+                  as="li"
+                  key={point.index}
+                  className="border-b border-ink/15 py-7 first:pt-0"
+                >
                   <span className="font-mono text-[0.6875rem] tracking-[0.16em] text-green-800">
                     {point.index}
                   </span>

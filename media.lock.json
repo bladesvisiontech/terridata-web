@@ -1,0 +1,130 @@
+{
+  "heroTerritorio": {
+    "src": "/media/heroTerritorio.jpg",
+    "width": 2000,
+    "height": 1334,
+    "photographer": "Juan Felipe Ramírez",
+    "sourceUrl": "https://www.pexels.com/photo/guatavita-town-in-summer-17382130/",
+    "provider": "pexels"
+  },
+  "territorioRural": {
+    "src": "/media/territorioRural.jpg",
+    "width": 2000,
+    "height": 1248,
+    "photographer": "Quang Nguyen Vinh",
+    "sourceUrl": "https://www.pexels.com/photo/aerial-view-of-a-rural-area-13310158/",
+    "provider": "pexels"
+  },
+  "tramaUrbana": {
+    "src": "/media/tramaUrbana.jpg",
+    "width": 2000,
+    "height": 1126,
+    "photographer": "K",
+    "sourceUrl": "https://www.pexels.com/photo/aerial-view-of-budapest-city-blocks-in-fall-34431069/",
+    "provider": "pexels"
+  },
+  "paisajeAndino": {
+    "src": "/media/paisajeAndino.jpg",
+    "width": 2000,
+    "height": 1338,
+    "photographer": "Tiarra Sorte",
+    "sourceUrl": "https://www.pexels.com/photo/aerial-view-of-jerico-town-with-mountains-32419585/",
+    "provider": "pexels"
+  },
+  "ciudadCaribe": {
+    "src": "/media/ciudadCaribe.jpg",
+    "width": 2000,
+    "height": 1126,
+    "photographer": "K",
+    "sourceUrl": "https://www.pexels.com/photo/aerial-view-of-colorful-houses-in-panama-city-33803480/",
+    "provider": "pexels"
+  },
+  "moduloCatastral": {
+    "src": "/media/moduloCatastral.jpg",
+    "width": 2000,
+    "height": 1336,
+    "photographer": "Ivan S",
+    "sourceUrl": "https://www.pexels.com/photo/close-up-shot-of-a-floor-plan-4458193/",
+    "provider": "pexels"
+  },
+  "moduloTributaria": {
+    "src": "/media/moduloTributaria.jpg",
+    "width": 2000,
+    "height": 1334,
+    "photographer": "https://kaboompics.com/",
+    "sourceUrl": "https://www.pexels.com/photo/person-holding-oink-calculator-7680744/",
+    "provider": "pexels"
+  },
+  "moduloPlaneacion": {
+    "src": "/media/moduloPlaneacion.jpg",
+    "width": 2000,
+    "height": 1500,
+    "photographer": "jason hu",
+    "sourceUrl": "https://www.pexels.com/photo/aerial-view-of-modern-chinese-cityscape-32401791/",
+    "provider": "pexels"
+  },
+  "moduloPortal": {
+    "src": "/media/moduloPortal.jpg",
+    "width": 2000,
+    "height": 1334,
+    "photographer": "Mikael Blomkvist",
+    "sourceUrl": "https://www.pexels.com/photo/person-typing-on-silver-laptop-4152784/",
+    "provider": "pexels"
+  },
+  "retoDispersion": {
+    "src": "/media/retoDispersion.jpg",
+    "width": 2000,
+    "height": 1334,
+    "photographer": "Zulfugar Karimov",
+    "sourceUrl": "https://www.pexels.com/photo/colorful-office-binders-on-shelf-34293525/",
+    "provider": "pexels"
+  },
+  "equipoTecnico": {
+    "src": "/media/equipoTecnico.jpg",
+    "width": 2000,
+    "height": 1334,
+    "photographer": "Mikael Blomkvist",
+    "sourceUrl": "https://www.pexels.com/photo/man-and-woman-looking-at-the-construction-plan-8961295/",
+    "provider": "pexels"
+  },
+  "ciudadanoDigital": {
+    "src": "/media/ciudadanoDigital.jpg",
+    "width": 2000,
+    "height": 1334,
+    "photographer": "Adem Erkoç",
+    "sourceUrl": "https://www.pexels.com/photo/elderly-man-in-rural-landscape-at-daytime-32866650/",
+    "provider": "pexels"
+  },
+  "moduloVisor": {
+    "src": "/media/moduloVisor.jpg",
+    "width": 2000,
+    "height": 1334,
+    "photographer": "Tiia Pakk",
+    "sourceUrl": "https://www.pexels.com/photo/aerial-view-of-green-and-brown-grass-field-4350649/",
+    "provider": "pexels"
+  },
+  "moduloCartera": {
+    "src": "/media/moduloCartera.jpg",
+    "width": 2000,
+    "height": 1334,
+    "photographer": "cottonbro studio",
+    "sourceUrl": "https://www.pexels.com/photo/cardboard-box-full-of-file-folders-8371705/",
+    "provider": "pexels"
+  },
+  "moduloHacienda": {
+    "src": "/media/moduloHacienda.jpg",
+    "width": 2000,
+    "height": 1126,
+    "photographer": "TBD Traveller",
+    "sourceUrl": "https://www.pexels.com/photo/vibrant-market-scene-in-valencia-spain-30811284/",
+    "provider": "pexels"
+  },
+  "moduloAnalitica": {
+    "src": "/media/moduloAnalitica.jpg",
+    "width": 2000,
+    "height": 1334,
+    "photographer": "RDNE Stock project",
+    "sourceUrl": "https://www.pexels.com/photo/a-graph-on-printed-paper-7947754/",
+    "provider": "pexels"
+  }
+}

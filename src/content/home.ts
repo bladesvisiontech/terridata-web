@@ -203,6 +203,7 @@ export const CASES = {
       department: "Cundinamarca",
       summary: "Implementación del ecosistema Terridata.",
       modules: ["Visor Geográfico", "Gestión Catastral", "Gestión Tributaria", "Analítica"],
+      image: "paisajeAndino",
       metric: null as { value: string; label: string } | null,
     },
     {
@@ -211,6 +212,7 @@ export const CASES = {
       department: "Córdoba",
       summary: "Transformación digital de la gestión territorial.",
       modules: ["Gestión Catastral", "Información Geográfica", "Analítica Territorial"],
+      image: "ciudadCaribe",
       metric: null as { value: string; label: string } | null,
     },
   ],

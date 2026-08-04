@@ -1,6 +1,7 @@
 import { Reveal } from "@/components/motion/Reveal";
 import { Stagger, StaggerItem } from "@/components/motion/Stagger";
 import { TextReveal } from "@/components/motion/TextReveal";
+import { BrandImage } from "@/components/ui/BrandImage";
 import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Section } from "@/components/ui/Section";
@@ -13,6 +14,15 @@ import { MODULARITY } from "@/content/home";
 export function Modularity() {
   return (
     <Section tone="deep" grid>
+      {/* El territorio de fondo, muy contenido: es la sección donde el
+          argumento pesa más que la imagen. */}
+      <BrandImage
+        media="territorioRural"
+        treatment="duotone"
+        scrim="full"
+        sizes="100vw"
+        className="pointer-events-none absolute inset-0 -z-10 opacity-30"
+      />
       <Container>
         <div className="max-w-4xl">
           <Reveal>

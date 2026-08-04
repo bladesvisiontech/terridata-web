@@ -4,6 +4,7 @@ import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { ArrowUpRight, Check, MessageCircle, Plus } from "lucide-react";
 import { useCallback, useEffect, useState, useSyncExternalStore } from "react";
 
+import { BrandImage } from "@/components/ui/BrandImage";
 import { ButtonLink } from "@/components/ui/Button";
 import { ModuleGlyph } from "@/components/ui/ModuleGlyph";
 import { MODULES, type EcosystemModule } from "@/content/modules";
@@ -198,9 +199,16 @@ function ModuleRow({
             className="overflow-hidden"
           >
             <div className="border-t border-ink/10 p-5 sm:p-7">
-              <p className="max-w-3xl text-[1.0625rem] leading-relaxed text-ink-700">
-                {module.summary}
-              </p>
+              <div className="grid gap-7 lg:grid-cols-[1fr_20rem] lg:gap-10">
+                <p className="text-[1.0625rem] leading-relaxed text-ink-700">
+                  {module.summary}
+                </p>
+                <BrandImage
+                  media={module.image}
+                  sizes="(max-width: 1024px) 100vw, 320px"
+                  className="aspect-[16/10] rounded-xl lg:row-span-2"
+                />
+              </div>
 
               <div className="mt-8 grid gap-8 lg:grid-cols-[1.5fr_1fr] lg:gap-12">
                 <div>
