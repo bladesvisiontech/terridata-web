@@ -1,0 +1,106 @@
+/* ============================================================
+   Terridata — tokens de marca
+   Paleta extraída del deck institucional (Canva, 2026).
+   Ver AGENTS.md para las restricciones de contraste.
+   ============================================================ */
+
+@theme {
+  /* --- Verde institucional -------------------------------- */
+  /* 500 es el verde de marca del deck (#367F62).             */
+  /* 800 es el único verde válido como texto sobre crema.     */
+  --color-green-50: #edf5f1;
+  --color-green-100: #d6e8df;
+  --color-green-200: #afd1c1;
+  --color-green-300: #7fb49d;
+  --color-green-400: #52977c;
+  --color-green-500: #367f62;
+  --color-green-600: #2b6650;
+  --color-green-700: #24523f;
+  --color-green-800: #1b4534;
+  --color-green-900: #133024;
+
+  /* --- Crema / arena -------------------------------------- */
+  /* 50 es el fondo base del sitio. 200 es el crema del deck. */
+  --color-cream-50: #fffdf8;
+  --color-cream-100: #fef6e9;
+  --color-cream-200: #fce7c3;
+  --color-cream-300: #f5d49c;
+  --color-cream-400: #e8b96d;
+
+  /* --- Tinta ---------------------------------------------- */
+  --color-ink: #0b0811;
+  --color-ink-700: #3a3640;
+  --color-ink-500: #6b6672;
+  --color-ink-300: #a8a4ad;
+  --color-ink-100: #ddd9e0;
+
+  /* --- Semánticos ----------------------------------------- */
+  --color-surface: var(--color-cream-50);
+  --color-surface-warm: var(--color-cream-200);
+  --color-surface-deep: var(--color-green-900);
+  --color-foreground: var(--color-ink);
+  --color-foreground-muted: var(--color-ink-500);
+  --color-primary: var(--color-green-500);
+  --color-primary-text: var(--color-green-800);
+  --color-border: color-mix(in oklab, var(--color-ink) 12%, transparent);
+  --color-border-strong: color-mix(in oklab, var(--color-ink) 22%, transparent);
+  --color-danger: #b42318;
+
+  /* --- Tipografía ----------------------------------------- */
+  --font-sans: var(--font-montserrat), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, "SF Mono", monospace;
+
+  /* Escala fluida. El mínimo está calculado contra 375 px de
+     ancho útil y la palabra más larga del copy ("Inteligencia"). */
+  /* El mínimo está calculado contra 335 px de ancho útil (teléfono
+     de 375 px menos los márgenes) y la línea móvil más larga del
+     titular, «su municipio en». Subirlo hace que refluya. */
+  --text-display-xl: clamp(2.25rem, 1.15rem + 4.7vw, 5.5rem);
+  --text-display-xl--line-height: 0.98;
+  --text-display-xl--letter-spacing: -0.035em;
+  --text-display-xl--font-weight: 800;
+
+  /* Deliberadamente por debajo del display-xl: los encabezados de
+     sección no deben competir con el titular de apertura. */
+  --text-display-lg: clamp(1.875rem, 1.35rem + 2.3vw, 3.25rem);
+  --text-display-lg--line-height: 1.06;
+  --text-display-lg--letter-spacing: -0.028em;
+  --text-display-lg--font-weight: 800;
+
+  --text-display-md: clamp(1.625rem, 1.2rem + 1.8vw, 2.5rem);
+  --text-display-md--line-height: 1.12;
+  --text-display-md--letter-spacing: -0.02em;
+  --text-display-md--font-weight: 700;
+
+  --text-display-sm: clamp(1.25rem, 1.05rem + 0.85vw, 1.75rem);
+  --text-display-sm--line-height: 1.2;
+  --text-display-sm--letter-spacing: -0.015em;
+  --text-display-sm--font-weight: 700;
+
+  --text-lead: clamp(1.0625rem, 1rem + 0.35vw, 1.3125rem);
+  --text-lead--line-height: 1.6;
+
+  /* Etiqueta monoespaciada: índices, coordenadas, epígrafes. */
+  --text-label: 0.6875rem;
+  --text-label--line-height: 1;
+  --text-label--letter-spacing: 0.16em;
+  --text-label--font-weight: 500;
+
+  /* --- Ritmo vertical ------------------------------------- */
+  --spacing-section: clamp(4rem, 2.75rem + 5.2vw, 7rem);
+  --spacing-section-tight: clamp(2.75rem, 2rem + 3.4vw, 4.75rem);
+  --spacing-gutter: clamp(1.25rem, 0.6rem + 2.6vw, 2.5rem);
+
+  /* --- Contenedores --------------------------------------- */
+  --container-shell: 82.5rem;
+  --container-prose: 44rem;
+
+  /* --- Movimiento ----------------------------------------- */
+  /* Un solo ritmo para todo el sitio. La salida siempre es
+     más corta que la entrada (~65%). */
+  --ease-entrance: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-exit: cubic-bezier(0.4, 0, 1, 1);
+  --duration-fast: 160ms;
+  --duration-base: 240ms;
+  --duration-slow: 620ms;
+}

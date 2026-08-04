@@ -1,26 +1,134 @@
 @import "tailwindcss";
+@import "../styles/tokens.css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@layer base {
+  *,
+  *::before,
+  *::after {
+    border-color: var(--color-border);
+  }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+    /* Compensa el header fijo cuando se navega a un ancla. */
+    scroll-padding-top: 7rem;
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  body {
+    background-color: var(--color-surface);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+  }
+
+  /* Cifras de ancho fijo en datos, para que un contador que sube
+     no desplace el texto de al lado. */
+  .tabular,
+  [data-tabular] {
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: "tnum";
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-green-500);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  ::selection {
+    background-color: var(--color-green-500);
+    color: var(--color-cream-50);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer components {
+  /* ----------------------------------------------------------
+     Retícula catastral — el fondo técnico del sitio.
+     Dos tramas superpuestas, la fina de 24 px y la gruesa de
+     120 px, como un plano predial.
+     ---------------------------------------------------------- */
+  .cadastral-grid {
+    background-image:
+      linear-gradient(
+        to right,
+        color-mix(in oklab, var(--color-ink) 5%, transparent) 1px,
+        transparent 1px
+      ),
+      linear-gradient(
+        to bottom,
+        color-mix(in oklab, var(--color-ink) 5%, transparent) 1px,
+        transparent 1px
+      ),
+      linear-gradient(
+        to right,
+        color-mix(in oklab, var(--color-ink) 9%, transparent) 1px,
+        transparent 1px
+      ),
+      linear-gradient(
+        to bottom,
+        color-mix(in oklab, var(--color-ink) 9%, transparent) 1px,
+        transparent 1px
+      );
+    background-size:
+      24px 24px,
+      24px 24px,
+      120px 120px,
+      120px 120px;
+  }
+
+  .cadastral-grid-inverse {
+    background-image:
+      linear-gradient(
+        to right,
+        color-mix(in oklab, var(--color-cream-50) 8%, transparent) 1px,
+        transparent 1px
+      ),
+      linear-gradient(
+        to bottom,
+        color-mix(in oklab, var(--color-cream-50) 8%, transparent) 1px,
+        transparent 1px
+      );
+    background-size:
+      120px 120px,
+      120px 120px;
+  }
+
+  /* Desvanece la retícula hacia los bordes para que no corte en
+     seco contra el final de la sección. */
+  .grid-fade {
+    mask-image: radial-gradient(
+      ellipse 100% 80% at 50% 40%,
+      #000 30%,
+      transparent 100%
+    );
+  }
+
+  /* Epígrafe monoespaciado. */
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: var(--text-label);
+    line-height: 1;
+    letter-spacing: var(--text-label--letter-spacing);
+    font-weight: 500;
+    text-transform: uppercase;
+  }
 }
