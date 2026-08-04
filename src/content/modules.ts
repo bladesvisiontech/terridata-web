@@ -28,6 +28,10 @@ export type EcosystemModule = {
   summary: string;
   /** Capacidades concretas. Se muestran al desplegar el módulo. */
   capabilities: readonly string[];
+  /** Módulos con los que comparte información. Ids de esta misma lista. */
+  integrations: readonly string[];
+  /** Dependencias del municipio que lo usan a diario. */
+  users: readonly string[];
   icon: ModuleIcon;
 };
 
@@ -46,6 +50,8 @@ export const MODULES: readonly EcosystemModule[] = [
       "Medición de distancias y áreas sobre el terreno",
       "Un clic sobre un predio devuelve toda su información",
     ],
+    integrations: ["gestion-catastral", "gestion-tributaria", "planeacion-urbanismo", "cartera-y-cobro", "analitica-territorial", "portal-ciudadano"],
+    users: ["Planeación", "Hacienda", "Catastro", "Jurídica", "Alcaldía"],
     icon: "map",
   },
   {
@@ -62,6 +68,8 @@ export const MODULES: readonly EcosystemModule[] = [
       "Auditoría permanente que cuantifica y clasifica cada inconsistencia",
       "Comparación de dos o más vigencias sobre el mismo mapa",
     ],
+    integrations: ["visor-geografico", "gestion-tributaria", "planeacion-urbanismo", "analitica-territorial"],
+    users: ["Catastro", "Planeación", "Hacienda"],
     icon: "layers",
   },
   {
@@ -78,6 +86,8 @@ export const MODULES: readonly EcosystemModule[] = [
       "Trazabilidad: cada cálculo puede reconstruirse paso a paso",
       "Ciclo completo del impuesto de alumbrado público",
     ],
+    integrations: ["gestion-catastral", "visor-geografico", "cartera-y-cobro", "analitica-territorial", "portal-ciudadano"],
+    users: ["Hacienda", "Tesorería", "Alcaldía"],
     icon: "coins",
   },
   {
@@ -94,6 +104,8 @@ export const MODULES: readonly EcosystemModule[] = [
       "Formatos y documentos listos para diligenciar en cada actuación",
       "Expediente electrónico por predio deudor",
     ],
+    integrations: ["gestion-tributaria", "visor-geografico", "analitica-territorial", "portal-ciudadano"],
+    users: ["Hacienda", "Tesorería", "Jurídica"],
     icon: "receipt",
   },
   {
@@ -110,6 +122,8 @@ export const MODULES: readonly EcosystemModule[] = [
       "Demarcación, nomenclatura y licencias urbanísticas",
       "Firma del funcionario, código de verificación y QR en cada documento",
     ],
+    integrations: ["visor-geografico", "gestion-catastral", "gestion-tributaria", "analitica-territorial"],
+    users: ["Planeación", "Urbanismo", "Atención al Ciudadano"],
     icon: "compass",
   },
   {
@@ -125,6 +139,8 @@ export const MODULES: readonly EcosystemModule[] = [
       "Gestión de declaración y liquidación",
       "Certificado de paz y salvo expedido en el momento",
     ],
+    integrations: ["gestion-tributaria", "cartera-y-cobro", "analitica-territorial"],
+    users: ["Hacienda", "Tesorería"],
     icon: "briefcase",
   },
   {
@@ -140,6 +156,8 @@ export const MODULES: readonly EcosystemModule[] = [
       "Estadísticas de cartera por estado y rango de deuda",
       "Mapas temáticos que revelan dónde se concentra cada situación",
     ],
+    integrations: ["gestion-catastral", "gestion-tributaria", "planeacion-urbanismo", "visor-geografico", "portal-ciudadano"],
+    users: ["Alcaldía", "Hacienda", "Planeación", "Gobernaciones"],
     icon: "chart",
   },
   {
@@ -156,6 +174,8 @@ export const MODULES: readonly EcosystemModule[] = [
       "Mesa de Ayuda con asistente conversacional para funcionarios",
       "Creación y seguimiento de casos de soporte",
     ],
+    integrations: ["gestion-tributaria", "cartera-y-cobro", "gestion-catastral", "planeacion-urbanismo"],
+    users: ["Atención al Ciudadano", "Ciudadanía"],
     icon: "users",
   },
 ] as const;
