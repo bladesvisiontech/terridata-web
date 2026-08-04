@@ -117,7 +117,7 @@ export default function ProductosPage() {
         </Container>
       </Section>
 
-      <Section tone="deep" grid>
+      <Section tone="deep" grid notch="top">
         <Container>
           <div className="mx-auto max-w-3xl text-center">
             <Reveal>

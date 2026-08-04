@@ -53,6 +53,15 @@ El lenguaje visual sale del oficio del cliente: **el plano catastral**.
 - **Los predios** del hero se generan por subdivisión recursiva determinista
   (`src/lib/parcels.ts`). La semilla es fija: el servidor y el cliente tienen que
   trazar exactamente lo mismo o React marca error de hidratación.
+- **El bisel** (`.notch-diag`, `.notch-top`, `.notch-br`, `.notch-tr`,
+  `.notch-bl`) es el corte diagonal que firma el sitio. Va con `clip-path` y no
+  con bordes girados: recorta de verdad, así que también corta la foto o el
+  color que haya debajo. Un solo valor —`--notch`, `--notch-lg`— para todo; si
+  cada bloque corta distinto deja de leerse como sistema. Por debajo de `sm` se
+  encoge, porque a 375 px un corte de 3.5rem se come la esquina entera.
+- **Las fichas de datos** (`.data-chip`) flotan sobre la fotografía. La foto
+  sola dice «territorio»; la ficha encima dice «territorio con información
+  asociada», que es de lo que va el producto.
 - **Numeración visible.** Retos, módulos y pilares van numerados en
   monoespaciada. El índice sale de la posición, no del contenido.
 - **Primero el beneficio, después el nombre.** Las tarjetas de módulo dicen qué

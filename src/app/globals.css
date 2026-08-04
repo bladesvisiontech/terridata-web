@@ -122,6 +122,92 @@
     );
   }
 
+  /* ----------------------------------------------------------
+     Bisel — la firma del sitio.
+
+     Va con `clip-path` y no con bordes girados: recorta de verdad,
+     así que el fondo o la foto que haya debajo también se cortan y
+     el bisel se ve aunque el bloque lleve imagen.
+
+     Cada utilidad corta esquinas concretas. No se mezclan al azar:
+     `-diag` para franjas de contenido, `-top` para bloques que
+     cierran una sección, `-br` para las piezas del mosaico.
+     ---------------------------------------------------------- */
+  .notch-diag {
+    clip-path: polygon(
+      var(--notch-lg) 0,
+      100% 0,
+      100% calc(100% - var(--notch-lg)),
+      calc(100% - var(--notch-lg)) 100%,
+      0 100%,
+      0 var(--notch-lg)
+    );
+  }
+
+  .notch-top {
+    clip-path: polygon(
+      var(--notch-lg) 0,
+      calc(100% - var(--notch-lg)) 0,
+      100% var(--notch-lg),
+      100% 100%,
+      0 100%,
+      0 var(--notch-lg)
+    );
+  }
+
+  .notch-br {
+    clip-path: polygon(
+      0 0,
+      100% 0,
+      100% calc(100% - var(--notch)),
+      calc(100% - var(--notch)) 100%,
+      0 100%
+    );
+  }
+
+  .notch-tr {
+    clip-path: polygon(
+      0 0,
+      calc(100% - var(--notch)) 0,
+      100% var(--notch),
+      100% 100%,
+      0 100%
+    );
+  }
+
+  .notch-bl {
+    clip-path: polygon(
+      0 0,
+      100% 0,
+      100% 100%,
+      var(--notch) 100%,
+      0 calc(100% - var(--notch))
+    );
+  }
+
+  /* Por debajo de `sm` el bisel se encoge: a 375 px un corte de
+     3.5rem se come la esquina entera del bloque. */
+  @media (max-width: 639px) {
+    .notch-diag,
+    .notch-top {
+      --notch-lg: 1.75rem;
+    }
+    .notch-br,
+    .notch-tr,
+    .notch-bl {
+      --notch: 1.25rem;
+    }
+  }
+
+  /* Ficha de datos flotante sobre fotografía. */
+  .data-chip {
+    background-color: color-mix(in oklab, var(--color-cream-50) 94%, transparent);
+    backdrop-filter: blur(12px);
+    box-shadow:
+      0 1px 2px rgba(11, 8, 17, 0.06),
+      0 12px 32px -12px rgba(11, 8, 17, 0.28);
+  }
+
   /* Epígrafe monoespaciado. */
   .eyebrow {
     font-family: var(--font-mono);

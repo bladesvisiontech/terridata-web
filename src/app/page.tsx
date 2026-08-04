@@ -8,6 +8,8 @@ import { FinalCta } from "@/components/sections/FinalCta";
 import { Hero } from "@/components/sections/Hero";
 import { Modularity } from "@/components/sections/Modularity";
 import { Modules } from "@/components/sections/Modules";
+import { Showcase } from "@/components/sections/Showcase";
+import { TrustBand } from "@/components/sections/TrustBand";
 
 /**
  * El recorrido de la página sigue el argumento del guion comercial:
@@ -18,7 +20,9 @@ export default function HomePage() {
   return (
     <>
       <Hero />
+      <TrustBand />
       <Challenge />
+      <Showcase />
       <Ecosystem />
       <Modules />
       <Modularity />

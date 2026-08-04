@@ -84,6 +84,13 @@
   --text-label--letter-spacing: 0.16em;
   --text-label--font-weight: 500;
 
+  /* --- Bisel ----------------------------------------------- */
+  /* El corte diagonal es la firma del sitio. Un solo valor para
+     todo: si cada bloque corta distinto, deja de leerse como
+     sistema y parece un accidente. */
+  --notch: 2rem;
+  --notch-lg: 3.5rem;
+
   /* --- Ritmo vertical ------------------------------------- */
   --spacing-section: clamp(4rem, 2.75rem + 5.2vw, 7rem);
   --spacing-section-tight: clamp(2.75rem, 2rem + 3.4vw, 4.75rem);

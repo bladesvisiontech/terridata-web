@@ -14,7 +14,22 @@ export const HERO = {
     "de su municipio en",
     "decisiones estratégicas.",
   ],
-  /* A 375 px el corte de escritorio refluye a seis renglones. */
+  /*
+   * Corte para el hero a media anchura.
+   *
+   * La columna mide unos 613 px a 1440. Con Montserrat ExtraBold, una
+   * línea de 23 caracteres necesitaría bajar la tipografía a 48 px
+   * para caber; con líneas de 15 caracteres aguanta hasta 74 px. Por
+   * eso el corte es de cinco líneas cortas y no de cuatro largas.
+   */
+  headlineSplit: [
+    "Convierta la",
+    "información de",
+    "su municipio en",
+    "decisiones",
+    "estratégicas.",
+  ],
+  /* A 375 px hasta ese corte refluye: aquí van líneas más cortas. */
   headlineMobile: [
     "Convierta la",
     "información de",
@@ -23,12 +38,48 @@ export const HERO = {
     "estratégicas.",
   ],
   body: "Terridata integra la información geográfica, catastral, tributaria, urbanística y administrativa en un único ecosistema tecnológico para fortalecer la gestión pública.",
-  stats: [
-    { value: 20, suffix: "+", label: "Años en gestión territorial" },
-    { value: 8, suffix: "", label: "Módulos conectados" },
-    { value: 100, suffix: " %", label: "Web, sin instalaciones" },
+  /* Apoyos cortos bajo los botones. */
+  highlights: [
+    {
+      title: "Arquitectura modular",
+      description: "Active solo los módulos que su municipio necesita hoy.",
+    },
+    {
+      title: "Configurada con su norma",
+      description: "Sus tarifas, su Estatuto de Rentas y su ordenamiento.",
+    },
   ],
 } as const;
+
+/**
+ * Fichas del mosaico de apertura.
+ *
+ * Los valores son ilustrativos: representan el tipo de dato que la
+ * plataforma asocia a un predio, no un predio real de un municipio
+ * cliente.
+ */
+export const HERO_COLLAGE = {
+  parcel: {
+    label: "Predio seleccionado",
+    code: "25785 0001 0001 0001",
+    value: "$184.500.000",
+  },
+  procedure: {
+    title: "Certificado expedido",
+    detail: "Con código QR de verificación",
+  },
+  tile: {
+    title: "Un solo dato, una sola verdad para toda la administración.",
+    action: "Ver el ecosistema",
+  },
+} as const;
+
+/** Cifras de la franja de apertura. */
+export const STATS_BAND = [
+  { value: 20, suffix: "+", label: "Años en gestión territorial" },
+  { value: 8, suffix: "", label: "Módulos conectados" },
+  { value: 100, suffix: " %", label: "Web, sin instalaciones locales" },
+] as const;
 
 export const TRUST = {
   label: "Confían en Terridata",
@@ -81,6 +132,39 @@ export const ECOSYSTEM = {
   ],
   outcome:
     "Se acaba la digitación repetida entre dependencias, que es justamente donde nacen los errores y los reprocesos.",
+} as const;
+
+/**
+ * Sección de capacidades.
+ *
+ * ⚠️ Cifras ilustrativas. Representan el tipo de resultado que
+ * produce la plataforma, no datos de un municipio cliente.
+ */
+export const SHOWCASE = {
+  eyebrow: "Así se ve por dentro",
+  headline: ["El territorio, sus datos", "y la norma que los rige."],
+  body: "No es un mapa con información al lado. Es el mismo predio consultado desde catastro, liquidado desde hacienda y certificado desde urbanismo, sin salir del sistema.",
+  diagnostic: {
+    label: "Diagnóstico catastral",
+    total: "1.284",
+    totalLabel: "Inconsistencias detectadas automáticamente",
+    findings: [
+      { name: "Predios sin cartografía", count: "512", percent: 40 },
+      { name: "Áreas incoherentes", count: "398", percent: 31 },
+      { name: "Destino económico erróneo", count: "374", percent: 29 },
+    ],
+  },
+  liquidation: {
+    label: "Liquidación del predial",
+    amount: "$1.845.200",
+    amountLabel: "Impuesto de la vigencia, con su cálculo trazable",
+    steps: [
+      { name: "Avalúo catastral", value: "$184.500.000" },
+      { name: "Tarifa por destino", value: "10,0 ‰" },
+      { name: "Límite de incremento", value: "Aplicado" },
+    ],
+    basis: "Ley 44 de 1990 · Ley 1995 de 2019",
+  },
 } as const;
 
 export const MODULES_SECTION = {

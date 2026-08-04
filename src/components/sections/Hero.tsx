@@ -1,25 +1,23 @@
-import { ArrowRight, MessageCircle } from "lucide-react";
+import { ArrowRight, Layers, MessageCircle, ShieldCheck } from "lucide-react";
 
-import { Counter } from "@/components/motion/Counter";
 import { Reveal } from "@/components/motion/Reveal";
 import { TextReveal } from "@/components/motion/TextReveal";
 import { ButtonLink } from "@/components/ui/Button";
-import { BrandImage } from "@/components/ui/BrandImage";
 import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Section } from "@/components/ui/Section";
-import { PlatformFrame } from "@/components/visuals/PlatformFrame";
-import { HERO, TRUST } from "@/content/home";
+import { HeroCollage } from "@/components/visuals/HeroCollage";
+import { HERO } from "@/content/home";
 import { ROUTES, WHATSAPP_INTENTS, whatsappUrl } from "@/lib/constants";
 
 /**
- * El titular ocupa el ancho completo en vez de media pantalla.
+ * Apertura en dos columnas: argumento a la izquierda, mosaico a la
+ * derecha.
  *
- * Con la retícula partida en dos columnas, las tres líneas declaradas
- * del titular se refluían a seis y la animación línea por línea
- * perdía todo el sentido. A ancho completo el corte declarado se
- * respeta y la tipografía puede ir al tamaño que pide un titular de
- * apertura.
+ * El titular vuelve a media anchura y por eso baja de tamaño: con el
+ * corte declarado en cuatro líneas cortas cabe sin refluir, y el
+ * mosaico aporta el peso visual que antes tenía que cargar la
+ * tipografía sola.
  */
 export function Hero() {
   return (
@@ -27,108 +25,75 @@ export function Hero() {
       tone="paper"
       spacing="none"
       grid
-      className="pb-(--spacing-section-tight) pt-12 lg:pt-16"
+      className="pb-(--spacing-section-tight) pt-10 lg:pt-14"
     >
       <Container>
-        {/* El hero ya está en pantalla al cargar: anima al montar, no
-            al entrar en vista. */}
-        <Reveal trigger="mount">
-          <Eyebrow>{HERO.eyebrow}</Eyebrow>
-        </Reveal>
-
-        <TextReveal
-          as="h1"
-          trigger="mount"
-          delay={0.1}
-          lines={HERO.headline}
-          linesMobile={HERO.headlineMobile}
-          className="mt-6 max-w-6xl text-display-xl text-ink"
-        />
-
-        <div className="mt-10 flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between lg:gap-16">
-          <Reveal trigger="mount" delay={0.45} className="lg:max-w-2xl">
-            <p className="text-lead text-ink-700">{HERO.body}</p>
-          </Reveal>
-
-          <Reveal trigger="mount" delay={0.58} className="shrink-0">
-            <div className="flex flex-col gap-3 sm:flex-row">
-              <ButtonLink href={whatsappUrl(WHATSAPP_INTENTS.demo)} external size="lg">
-                <MessageCircle aria-hidden strokeWidth={1.75} className="size-[1.125rem]" />
-                Solicitar demostración
-              </ButtonLink>
-              <ButtonLink href={ROUTES.productos} variant="secondary" size="lg">
-                Conocer el ecosistema
-                <ArrowRight
-                  aria-hidden
-                  strokeWidth={1.75}
-                  className="size-[1.125rem] transition-transform duration-(--duration-base) group-hover:translate-x-1"
-                />
-              </ButtonLink>
-            </div>
-          </Reveal>
-        </div>
-
-        {/* El visor montado sobre una vista aérea del territorio, que es
-            como lo pedía el documento de navegación: la plataforma
-            apoyada sobre el terreno real que administra. */}
-        <Reveal trigger="mount" delay={0.35} distance={30} className="mt-14 lg:mt-16">
+        <div className="grid items-center gap-12 lg:grid-cols-[1fr_1.05fr] lg:gap-16">
           <div>
-            <BrandImage
-              media="heroTerritorio"
-              // El duotono fuerte apagaba demasiado el municipio. Aquí la
-              // foto es el argumento, así que se deja reconocible.
-              treatment="tint"
-              priority
-              sizes="(max-width: 1024px) 100vw, 1320px"
-              className="aspect-[4/3] rounded-3xl sm:aspect-[16/8] lg:aspect-[21/9]"
+            {/* El hero ya está en pantalla al cargar: anima al montar. */}
+            <Reveal trigger="mount">
+              <Eyebrow>{HERO.eyebrow}</Eyebrow>
+            </Reveal>
+
+            <TextReveal
+              as="h1"
+              trigger="mount"
+              delay={0.1}
+              lines={HERO.headlineSplit}
+              linesMobile={HERO.headlineMobile}
+              className="mt-6 text-display-lg text-ink"
             />
-            {/* El visor sube sobre la foto en vez de taparla entera: el
-                margen negativo va en porcentaje del ancho, así el solape
-                es el mismo en cualquier tamaño de pantalla. */}
-            <div className="relative z-10 mx-auto -mt-[22%] w-[94%] max-w-4xl sm:-mt-[16%] lg:-mt-[15%]">
-              <PlatformFrame />
-            </div>
-          </div>
-        </Reveal>
 
-        <div className="mt-14 grid gap-10 border-t border-ink/10 pt-8 lg:grid-cols-[auto_1fr] lg:items-center lg:gap-16">
-          <Reveal trigger="mount" delay={0.7}>
-            <dl className="grid grid-cols-3 gap-8 sm:gap-12">
-              {HERO.stats.map((stat) => (
-                <div key={stat.label}>
-                  <dt className="sr-only">{stat.label}</dt>
-                  <dd>
-                    <Counter
-                      to={stat.value}
-                      suffix={stat.suffix}
-                      className="block text-display-md font-extrabold tracking-tight text-green-800"
-                    />
-                    <span className="mt-1.5 block max-w-[10rem] text-[0.8125rem] leading-snug text-ink-500">
-                      {stat.label}
+            <Reveal trigger="mount" delay={0.45}>
+              <p className="mt-7 max-w-xl text-lead text-ink-700">{HERO.body}</p>
+            </Reveal>
+
+            <Reveal trigger="mount" delay={0.58}>
+              <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+                <ButtonLink href={whatsappUrl(WHATSAPP_INTENTS.demo)} external size="lg">
+                  <MessageCircle aria-hidden strokeWidth={1.75} className="size-[1.125rem]" />
+                  Solicitar demostración
+                </ButtonLink>
+                <ButtonLink href={ROUTES.productos} variant="secondary" size="lg">
+                  Conocer el ecosistema
+                  <ArrowRight
+                    aria-hidden
+                    strokeWidth={1.75}
+                    className="size-[1.125rem] transition-transform duration-(--duration-base) group-hover:translate-x-1"
+                  />
+                </ButtonLink>
+              </div>
+            </Reveal>
+
+            {/* Dos apoyos cortos bajo los botones, como en la referencia:
+                resumen del producto sin obligar a bajar. */}
+            <Reveal trigger="mount" delay={0.7}>
+              <ul className="mt-10 grid gap-5 border-t border-ink/10 pt-7 sm:grid-cols-2">
+                {HERO.highlights.map((highlight, index) => (
+                  <li key={highlight.title} className="flex items-start gap-3">
+                    <span className="inline-flex size-9 shrink-0 items-center justify-center rounded-lg bg-green-50 text-green-700">
+                      {index === 0 ? (
+                        <Layers aria-hidden strokeWidth={1.75} className="size-4" />
+                      ) : (
+                        <ShieldCheck aria-hidden strokeWidth={1.75} className="size-4" />
+                      )}
                     </span>
-                  </dd>
-                </div>
-              ))}
-            </dl>
-          </Reveal>
-
-          <Reveal trigger="mount" delay={0.82}>
-            <div className="flex flex-col gap-3 lg:items-end">
-              <p className="eyebrow text-ink-500">{TRUST.label}</p>
-              <ul className="flex flex-wrap items-center gap-x-7 gap-y-2.5 lg:justify-end">
-                {TRUST.entities.map((entity) => (
-                  <li
-                    key={entity}
-                    className="text-[0.9375rem] font-semibold text-ink-700"
-                  >
-                    {entity}
+                    <span>
+                      <span className="block text-[0.875rem] font-semibold text-ink">
+                        {highlight.title}
+                      </span>
+                      <span className="mt-0.5 block text-[0.8125rem] leading-snug text-ink-500">
+                        {highlight.description}
+                      </span>
+                    </span>
                   </li>
                 ))}
-                <li className="font-mono text-[0.8125rem] text-ink-300">
-                  {TRUST.upcoming}
-                </li>
               </ul>
-            </div>
+            </Reveal>
+          </div>
+
+          <Reveal trigger="mount" delay={0.3} distance={28}>
+            <HeroCollage />
           </Reveal>
         </div>
       </Container>

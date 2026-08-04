@@ -10,6 +10,12 @@ type SectionProps = {
   spacing?: "default" | "tight" | "none";
   /** Superpone la retícula catastral como fondo técnico. */
   grid?: boolean;
+  /**
+   * Bisel del bloque. `diag` corta arriba-izquierda y abajo-derecha;
+   * `top` corta las dos esquinas superiores. Se usa en las secciones
+   * de color macizo, que son las que cierran un tramo.
+   */
+  notch?: "none" | "diag" | "top";
 };
 
 const TONE_CLASS = {
@@ -31,6 +37,7 @@ export function Section({
   tone = "paper",
   spacing = "default",
   grid = false,
+  notch = "none",
 }: SectionProps) {
   return (
     <section
@@ -41,6 +48,8 @@ export function Section({
         // crea contenedor de scroll, así que no anula `position: sticky`
         // en los hijos.
         "overflow-clip",
+        notch === "diag" && "notch-diag",
+        notch === "top" && "notch-top",
         TONE_CLASS[tone],
         SPACING_CLASS[spacing],
         className,
