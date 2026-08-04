@@ -1,0 +1,7 @@
+# Fuera del paquete de despliegue: no hacen falta en el build de Vercel
+# y el de medios pesa 5,6 MB que ya viajan en el repo.
+scripts/
+docs/
+media.lock.json
+AGENTS.md
+CLAUDE.md

@@ -24,12 +24,14 @@ luego se importa.
 
 ## Color
 
-Cuatro colores, extraídos del deck institucional (no inventados):
+Cuatro colores, muestreados del logo oficial (`public/brand/logo.png`), no
+inventados. Los valores que se habían leído del deck estaban un par de puntos
+desviados y quedaron corregidos:
 
 | Token | Hex | Uso |
 |---|---|---|
-| `green-500` | `#367F62` | Verde de marca. Fondos, acentos, iconos |
-| `cream-200` | `#FCE7C3` | Superficie cálida de sección |
+| `green-500` | `#387E66` | Verde de marca. Fondos, acentos, iconos |
+| `cream-200` | `#FFEBC6` | Superficie cálida de sección |
 | `cream-50` | `#FFFDF8` | Fondo base |
 | `ink` | `#0B0811` | Texto |
 
@@ -143,23 +145,37 @@ descarta el tamaño: el titular se queda en 16 px. **Al añadir un tamaño a
 
 ## Seguridad
 
-La CSP se emite en `src/proxy.ts` (en Next 16 `middleware` pasó a llamarse
-`proxy`), no en `next.config.ts`, porque necesita un **nonce distinto en cada
-petición**.
+La CSP y las demás cabeceras se emiten en `next.config.ts`.
 
-Una CSP que solo admita `'self'` en `script-src` bloquea los scripts de arranque
-de Next: React no hidrata y todo lo que dependa de JS se queda congelado en su
-estado inicial —que, con estas animaciones, significa **una página en blanco**—.
+Una CSP que solo admita `'self'` en `script-src` bloquea las 34 etiquetas
+`<script>` en línea que Next emite para arrancar React: no hidrata y todo lo que
+dependa de JS se queda congelado en su estado inicial —que, con estas
+animaciones, significa **una página en blanco**—. Por eso lleva
+`'unsafe-inline'`.
+
+**Se intentó antes la vía estricta y se descartó con motivo.** La alternativa
+documentada por Next es un nonce por petición desde `proxy.ts` (en Next 16
+`middleware` pasó a llamarse así). Obliga a render dinámico, y este sitio no
+tiene un solo dato dinámico. Peor: aun con `force-dynamic` y `connection()`,
+Next 16.2 siguió sirviendo la página desde su caché de prerrenderizado
+(`x-nextjs-prerender: 1`) y dos peticiones seguidas devolvieron **el mismo
+nonce**. Un nonce reutilizado no aporta la garantía que justifica su coste.
+
+Lo que sí protege la política actual, y es lo que importa en un sitio estático
+sin autenticación ni entrada de usuario: ningún script de origen externo,
+`object-src 'none'`, `base-uri 'self'`, `form-action 'self'` y
+`frame-ancestors 'none'`.
 
 `'unsafe-eval'` se concede **solo en desarrollo**: React lo usa para reconstruir
 los stack traces del servidor en el navegador y sin él el overlay de errores
-queda inutilizado. En producción no se concede.
+queda inutilizado.
 
-`style-src` sí lleva `'unsafe-inline'`: el nonce no aplica a atributos `style`, y
-Tailwind y framer-motion escriben estilos sobre los elementos.
+`style-src` lleva `'unsafe-inline'` en cualquier caso: el nonce no aplica a
+atributos `style`, y Tailwind y framer-motion escriben estilos sobre los
+elementos.
 
-⚠️ El nonce obliga a **render dinámico**. Está asumido para este proyecto por ser
-un cliente del sector público, donde una auditoría de seguridad es probable.
+⚠️ Si una auditoría del cliente exige CSP estricta, la vía es reintroducir el
+nonce y aceptar el render dinámico.
 
 ## Componentes
 
