@@ -3,6 +3,7 @@ import { JetBrains_Mono, Montserrat } from "next/font/google";
 
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
+import { WhatsAppFab } from "@/components/layout/WhatsAppFab";
 import { COMPANY, DEFAULT_SEO, SITE_URL } from "@/lib/constants";
 
 import "./globals.css";
@@ -85,6 +86,7 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
+        <WhatsAppFab />
       </body>
     </html>
   );

@@ -84,6 +84,20 @@
   --text-label--letter-spacing: 0.16em;
   --text-label--font-weight: 500;
 
+  /* --- Capas -----------------------------------------------
+     Escala fija. Antes de inventar un z-index nuevo, usar uno de
+     estos: los valores sueltos son lo que acaba tapando cosas.
+
+       10   contenido superpuesto dentro de una sección
+       40   botón flotante de WhatsApp
+       50   encabezado fijo
+       60   panel de navegación móvil y su velo
+      100   enlace de salto al contenido
+
+     El flotante va por debajo del encabezado y del panel móvil a
+     propósito: cuando el menú se abre, el flotante queda tapado en
+     vez de flotar sobre él. */
+
   /* --- Bisel ----------------------------------------------- */
   /* El corte diagonal es la firma del sitio. Un solo valor para
      todo: si cada bloque corta distinto, deja de leerse como
