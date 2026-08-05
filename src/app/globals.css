@@ -16,7 +16,16 @@
   }
 
   body {
-    background-color: var(--color-surface);
+    /* Un solo degradado a lo largo de todo el documento. `no-repeat`
+       más `background-attachment: scroll` lo estiran de la primera a
+       la última sección sin costuras intermedias. */
+    background-color: var(--color-paper-top);
+    background-image: linear-gradient(
+      180deg,
+      var(--color-paper-top) 0%,
+      var(--color-paper-bottom) 100%
+    );
+    background-repeat: no-repeat;
     color: var(--color-foreground);
     font-family: var(--font-sans);
     font-size: 1rem;
@@ -61,67 +70,6 @@
 }
 
 @layer components {
-  /* ----------------------------------------------------------
-     Retícula catastral — el fondo técnico del sitio.
-     Dos tramas superpuestas, la fina de 24 px y la gruesa de
-     120 px, como un plano predial.
-     ---------------------------------------------------------- */
-  .cadastral-grid {
-    background-image:
-      linear-gradient(
-        to right,
-        color-mix(in oklab, var(--color-ink) 5%, transparent) 1px,
-        transparent 1px
-      ),
-      linear-gradient(
-        to bottom,
-        color-mix(in oklab, var(--color-ink) 5%, transparent) 1px,
-        transparent 1px
-      ),
-      linear-gradient(
-        to right,
-        color-mix(in oklab, var(--color-ink) 9%, transparent) 1px,
-        transparent 1px
-      ),
-      linear-gradient(
-        to bottom,
-        color-mix(in oklab, var(--color-ink) 9%, transparent) 1px,
-        transparent 1px
-      );
-    background-size:
-      24px 24px,
-      24px 24px,
-      120px 120px,
-      120px 120px;
-  }
-
-  .cadastral-grid-inverse {
-    background-image:
-      linear-gradient(
-        to right,
-        color-mix(in oklab, var(--color-cream-50) 8%, transparent) 1px,
-        transparent 1px
-      ),
-      linear-gradient(
-        to bottom,
-        color-mix(in oklab, var(--color-cream-50) 8%, transparent) 1px,
-        transparent 1px
-      );
-    background-size:
-      120px 120px,
-      120px 120px;
-  }
-
-  /* Desvanece la retícula hacia los bordes para que no corte en
-     seco contra el final de la sección. */
-  .grid-fade {
-    mask-image: radial-gradient(
-      ellipse 100% 80% at 50% 40%,
-      #000 30%,
-      transparent 100%
-    );
-  }
-
   /* ----------------------------------------------------------
      Bisel — la firma del sitio.
 

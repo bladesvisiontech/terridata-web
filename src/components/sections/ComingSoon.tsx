@@ -23,7 +23,7 @@ export function ComingSoon({
   description: string;
 }) {
   return (
-    <Section tone="paper" grid className="min-h-[70dvh]">
+    <Section tone="paper" className="min-h-[70dvh]">
       <Container>
         <div className="max-w-2xl">
           <Reveal trigger="mount">

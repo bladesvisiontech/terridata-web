@@ -34,8 +34,15 @@
   --color-ink-300: #a8a4ad;
   --color-ink-100: #ddd9e0;
 
+  /* --- Fondo de página -------------------------------------
+     Un degradado vertical muy contenido, de blanco a un gris casi
+     imperceptible. Va en el `body` y no por sección: repetido en cada
+     bloque crearía una costura visible en cada frontera. */
+  --color-paper-top: #ffffff;
+  --color-paper-bottom: #f4f5f6;
+
   /* --- Semánticos ----------------------------------------- */
-  --color-surface: var(--color-cream-50);
+  --color-surface: var(--color-paper-top);
   --color-surface-warm: var(--color-cream-200);
   --color-surface-deep: var(--color-green-900);
   --color-foreground: var(--color-ink);

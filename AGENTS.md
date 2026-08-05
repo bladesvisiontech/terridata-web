@@ -47,10 +47,12 @@ Ratios verificados: `ink`/`cream-50` 19.4:1 · `ink`/`cream-200` 16.2:1 ·
 
 El lenguaje visual sale del oficio del cliente: **el plano catastral**.
 
-- **La retícula** (`.cadastral-grid`) es el fondo técnico del sitio: dos tramas
-  superpuestas de 24 px y 120 px, desvanecidas por `.grid-fade` para que no
-  corten en seco contra el borde de la sección.
-- **Los predios** del hero se generan por subdivisión recursiva determinista
+- **El fondo** es un degradado vertical muy contenido, de blanco a un gris casi
+  imperceptible, aplicado al `body` y **no por sección**: repetido en cada bloque
+  crearía una costura visible en cada frontera. Por eso `Section tone="paper"` es
+  transparente y deja pasar el degradado. Hubo antes una retícula catastral de
+  fondo; se retiró a petición del cliente y no debe reintroducirse sin acordarlo.
+- **Los predios** del visor se generan por subdivisión recursiva determinista
   (`src/lib/parcels.ts`). La semilla es fija: el servidor y el cliente tienen que
   trazar exactamente lo mismo o React marca error de hidratación.
 - **El bisel** (`.notch-diag`, `.notch-top`, `.notch-br`, `.notch-tr`,
@@ -215,7 +217,9 @@ hecho con la identidad correcta.
 Marcados en el código con `PENDIENTE` o `PROVISIONAL`:
 
 - Logo vectorial oficial → `src/components/ui/Logo.tsx`
-- Capturas reales de la plataforma → `src/components/visuals/PlatformFrame.tsx`
+- Capturas reales de la plataforma → `src/components/visuals/PlatformFrame.tsx`.
+  El banner del hero (`public/brand/hero-banner.png`) sí es material propio del
+  cliente y ya trae capturas reales.
 - Correo institucional, dirección y redes → `src/lib/constants.ts`
 - URL definitiva de la plataforma → `NEXT_PUBLIC_PLATFORM_ORIGIN`, ver
   `docs/migracion-dominio.md`

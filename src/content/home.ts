@@ -38,40 +38,6 @@ export const HERO = {
     "estratégicas.",
   ],
   body: "Terridata integra la información geográfica, catastral, tributaria, urbanística y administrativa en un único ecosistema tecnológico para fortalecer la gestión pública.",
-  /* Apoyos cortos bajo los botones. */
-  highlights: [
-    {
-      title: "Arquitectura modular",
-      description: "Active solo los módulos que su municipio necesita hoy.",
-    },
-    {
-      title: "Configurada con su norma",
-      description: "Sus tarifas, su Estatuto de Rentas y su ordenamiento.",
-    },
-  ],
-} as const;
-
-/**
- * Fichas del mosaico de apertura.
- *
- * Los valores son ilustrativos: representan el tipo de dato que la
- * plataforma asocia a un predio, no un predio real de un municipio
- * cliente.
- */
-export const HERO_COLLAGE = {
-  parcel: {
-    label: "Predio seleccionado",
-    code: "25785 0001 0001 0001",
-    value: "$184.500.000",
-  },
-  procedure: {
-    title: "Certificado expedido",
-    detail: "Con código QR de verificación",
-  },
-  tile: {
-    title: "Un solo dato, una sola verdad para toda la administración.",
-    action: "Ver el ecosistema",
-  },
 } as const;
 
 /** Cifras de la franja de apertura. */

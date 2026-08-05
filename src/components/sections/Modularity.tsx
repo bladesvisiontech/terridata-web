@@ -13,7 +13,7 @@ import { MODULARITY } from "@/content/home";
  */
 export function Modularity() {
   return (
-    <Section tone="deep" grid notch="diag">
+    <Section tone="deep" notch="diag">
       {/* El territorio de fondo, muy contenido: es la sección donde el
           argumento pesa más que la imagen. */}
       <BrandImage

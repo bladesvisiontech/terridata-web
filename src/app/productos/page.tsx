@@ -30,7 +30,6 @@ export default function ProductosPage() {
       <Section
         tone="paper"
         spacing="none"
-        grid
         className="pb-(--spacing-section-tight) pt-14 lg:pt-20"
       >
         <Container>
@@ -117,7 +116,7 @@ export default function ProductosPage() {
         </Container>
       </Section>
 
-      <Section tone="deep" grid notch="top">
+      <Section tone="deep" notch="top">
         <Container>
           <div className="mx-auto max-w-3xl text-center">
             <Reveal>

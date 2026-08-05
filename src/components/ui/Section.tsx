@@ -8,8 +8,6 @@ type SectionProps = {
   id?: string;
   tone?: "paper" | "cream" | "deep";
   spacing?: "default" | "tight" | "none";
-  /** Superpone la retícula catastral como fondo técnico. */
-  grid?: boolean;
   /**
    * Bisel del bloque. `diag` corta arriba-izquierda y abajo-derecha;
    * `top` corta las dos esquinas superiores. Se usa en las secciones
@@ -19,7 +17,8 @@ type SectionProps = {
 };
 
 const TONE_CLASS = {
-  paper: "bg-cream-50 text-ink",
+  // Transparente a propósito: deja ver el degradado del body.
+  paper: "text-ink",
   cream: "bg-cream-200 text-ink",
   deep: "bg-green-900 text-cream-50",
 } as const;
@@ -36,7 +35,6 @@ export function Section({
   id,
   tone = "paper",
   spacing = "default",
-  grid = false,
   notch = "none",
 }: SectionProps) {
   return (
@@ -55,15 +53,6 @@ export function Section({
         className,
       )}
     >
-      {grid ? (
-        <div
-          aria-hidden
-          className={cn(
-            "pointer-events-none absolute inset-0 -z-10 grid-fade",
-            tone === "deep" ? "cadastral-grid-inverse" : "cadastral-grid",
-          )}
-        />
-      ) : null}
       {children}
     </section>
   );

@@ -7,7 +7,7 @@ import { ECOSYSTEM } from "@/content/home";
 
 export function Ecosystem() {
   return (
-    <Section tone="paper" grid>
+    <Section tone="paper">
       <Container>
         <div className="grid items-center gap-16 lg:grid-cols-[1fr_1.05fr]">
           <div>

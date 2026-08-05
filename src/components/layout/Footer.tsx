@@ -26,11 +26,6 @@ const activeSocials = SOCIAL_LINKS.flatMap((social) =>
 export function Footer() {
   return (
     <footer className="relative isolate overflow-clip bg-green-900 text-cream-50">
-      <div
-        aria-hidden
-        className="cadastral-grid-inverse pointer-events-none absolute inset-0 -z-10 opacity-60"
-      />
-
       <Container className="py-(--spacing-section-tight)">
         <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr_1fr_1.2fr]">
           <div>

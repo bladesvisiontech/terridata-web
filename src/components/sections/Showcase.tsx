@@ -18,7 +18,7 @@ import { SHOWCASE } from "@/content/home";
  */
 export function Showcase() {
   return (
-    <Section tone="paper" grid>
+    <Section tone="paper">
       <Container>
         <SectionHeading
           eyebrow={SHOWCASE.eyebrow}
