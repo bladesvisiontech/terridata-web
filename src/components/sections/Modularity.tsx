@@ -1,27 +1,40 @@
+import Image from "next/image";
+
 import { Reveal } from "@/components/motion/Reveal";
 import { Stagger, StaggerItem } from "@/components/motion/Stagger";
 import { TextReveal } from "@/components/motion/TextReveal";
-import { BrandImage } from "@/components/ui/BrandImage";
 import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Section } from "@/components/ui/Section";
 import { MODULARITY } from "@/content/home";
 
+import municipioFondo from "../../../public/brand/municipio.jpg";
+
 /**
  * El argumento comercial más fuerte del guion, y por eso la única
  * sección oscura de la página: rompe el ritmo y se queda.
+ *
+ * El fondo es material propio del cliente —vista aérea de un
+ * municipio con el grafo verde de marca ya compuesto sobre la
+ * imagen— y por eso no pasa por `BrandImage`: el duotono de esa
+ * primitiva está pensado para fotos de banco sin tratar, y aquí
+ * volvería a desaturar un verde que ya es el de la marca. Mismo
+ * criterio que `cifras.jpg` en `TrustBand.tsx`.
  */
 export function Modularity() {
   return (
     <Section tone="deep" notch="diag">
-      {/* El territorio de fondo, muy contenido: es la sección donde el
-          argumento pesa más que la imagen. */}
-      <BrandImage
-        media="territorioRural"
-        treatment="duotone"
-        scrim="full"
+      <Image
+        src={municipioFondo}
+        alt=""
+        aria-hidden
+        fill
         sizes="100vw"
-        className="pointer-events-none absolute inset-0 -z-10 opacity-30"
+        className="pointer-events-none absolute inset-0 -z-20 object-cover opacity-55"
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 -z-10 bg-green-900/45"
       />
       <Container>
         <div className="max-w-4xl">
