@@ -32,13 +32,17 @@ import puntoPartida from "../../../public/brand/punto-partida.png";
  * · Los separadores verticales van como borde del elemento, no como
  *   nodo suelto, para que solo aparezcan cuando hay algo a los dos
  *   lados y desaparezcan al apilarse.
+ * · En móvil la imagen va antes que el titular —mismo criterio que el
+ *   video del hero—: el reordenado es visual, con `order`, así que en
+ *   el DOM el bloque de texto sigue primero para SEO y lectores de
+ *   pantalla.
  */
 export function Challenge() {
   return (
     <Section tone="deep">
       <Container>
-        <div className="grid items-center gap-12 lg:grid-cols-[1.05fr_1fr] lg:gap-16">
-          <div>
+        <div className="grid items-center gap-10 lg:grid-cols-[1.05fr_1fr] lg:gap-16">
+          <div className="order-2 lg:order-1">
             <Reveal>
               <Eyebrow tone="inverse">{CHALLENGE.eyebrow}</Eyebrow>
             </Reveal>
@@ -64,7 +68,7 @@ export function Challenge() {
             </Reveal>
           </div>
 
-          <Reveal delay={0.2} distance={26}>
+          <Reveal delay={0.2} distance={26} className="order-1 lg:order-2">
             <Image
               src={puntoPartida}
               alt="Escritorio con documentos apilados, archivo de una oficina municipal y vista aérea de un municipio"

@@ -213,6 +213,25 @@ Las páginas son Server Components. Solo llevan `"use client"` las primitivas de
 motion, el header, el menú de acceso y los visuales animados. Se mantienen
 delgados.
 
+## Probar con WebKit (Safari)
+
+Playwright trae un motor WebKit real, útil para detectar lo que Chromium deja
+pasar. Dos trampas al usarlo:
+
+1. **Nunca contra `http://localhost` en dev.** WebKit fuerza HTTPS en algunos
+   recursos de ese origen y todo falla con «SSL error», incluida la hoja de
+   estilos — la página sale sin ningún CSS, como si el sitio estuviera roto.
+   No es un bug real: es un artefacto de probar HTTP local con ese motor.
+   Probar siempre contra la URL de producción (HTTPS) o contra un build local
+   servido también por HTTPS.
+2. **`locator.screenshot()` no dispara las entradas por scroll.** Captura el
+   elemento completo aunque esté fuera del viewport, pero las animaciones con
+   `whileInView` solo se disparan con intersección real del navegador. Una
+   captura tomada tras `scrollIntoViewIfNeeded()` puede mostrar solo la primera
+   capa de un diagrama con opacidad 0 en el resto, y parece un fallo de
+   renderizado cuando es nada más que la animación sin haberse disparado. Hay
+   que desplazarse de verdad, en pasos, antes de capturar.
+
 ## Identidad de git
 
 El repositorio tiene identidad **local**, distinta de la global de la máquina:

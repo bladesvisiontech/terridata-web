@@ -187,8 +187,19 @@
   }
 
   /* Desvanece la trama hacia los bordes para que no corte en seco
-     contra el final del bloque. */
+     contra el final del bloque.
+
+     El prefijo -webkit- no es opcional aquí: Safari de iOS —el
+     navegador de la mayoría de los móviles en Colombia— ignora
+     `mask-image` sin prefijo incluso en versiones recientes. Sin él,
+     la propiedad completa se descarta y toda la superficie técnica
+     desaparece en el teléfono, aunque en escritorio se vea bien. */
   .tech-fade {
+    -webkit-mask-image: radial-gradient(
+      ellipse 90% 75% at 50% 45%,
+      #000 40%,
+      transparent 100%
+    );
     mask-image: radial-gradient(
       ellipse 90% 75% at 50% 45%,
       #000 40%,

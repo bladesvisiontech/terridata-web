@@ -157,9 +157,9 @@ export function LayerStack({ className }: { className?: string }) {
       <CornerBracket x={margin} y={VIEW.height - margin} flipY />
       <CornerBracket x={VIEW.width - margin} y={VIEW.height - margin} flipX flipY />
 
-      {/* --- Rótulo de sistema, esquina superior izquierda --- */}
+      {/* --- Rótulo de sistema con indicador de estado --- */}
       <text
-        x={margin + 6}
+        x={margin + 20}
         y={margin + 20}
         fill="var(--color-green-700)"
         fontSize="9"
@@ -168,6 +168,39 @@ export function LayerStack({ className }: { className?: string }) {
       >
         Modelo de capas · SIG
       </text>
+
+      {/* Testigo de estado, como el LED de un panel de instrumento: un
+          parpadeo digital —abrupto, no un fundido— porque eso es lo
+          que lee como «sistema encendido» y no como decoración. Se
+          apaga con movimiento reducido y queda fijo en encendido. */}
+      <circle
+        cx={margin + 12}
+        cy={margin + 17}
+        r="4.5"
+        fill="none"
+        stroke="var(--color-green-500)"
+        strokeOpacity="0.3"
+        strokeWidth="1"
+      />
+      <motion.circle
+        cx={margin + 12}
+        cy={margin + 17}
+        r="2.5"
+        fill="var(--color-green-500)"
+        initial={{ opacity: 1 }}
+        animate={
+          reduceMotion
+            ? undefined
+            : { opacity: [1, 1, 0.15, 0.15, 1] }
+        }
+        transition={{
+          duration: 1.8,
+          times: [0, 0.55, 0.6, 0.92, 1],
+          repeat: Infinity,
+          repeatDelay: 1.1,
+          ease: "linear",
+        }}
+      />
 
       {/* --- Eje vertical: la columna de datos que atraviesa la pila --- */}
       <motion.line
