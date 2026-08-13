@@ -207,6 +207,24 @@
     );
   }
 
+  /* ----------------------------------------------------------
+     Marquee de confianza.
+
+     Cursor infinito en CSS puro: no depende de framer-motion ni de
+     "use client", así la franja se queda como Server Component. El
+     contenido se duplica una vez en el JSX y el track se desplaza
+     la mitad de su ancho (las dos copias juntas) para que el
+     empalme del bucle sea invisible.
+     ---------------------------------------------------------- */
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
   /* Ficha de datos flotante sobre fotografía. */
   .data-chip {
     background-color: color-mix(in oklab, var(--color-cream-50) 94%, transparent);
