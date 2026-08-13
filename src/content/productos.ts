@@ -7,8 +7,8 @@
 
 export const PRODUCTOS_HERO = {
   eyebrow: "El ecosistema",
-  headline: ["Ocho módulos.", "Una sola información."],
-  headlineMobile: ["Ocho módulos.", "Una sola", "información."],
+  headline: ["Once módulos.", "Una sola información."],
+  headlineMobile: ["Once módulos.", "Una sola", "información."],
   body: "Cada módulo se activa de forma independiente sobre la información que su municipio ya tiene cargada. Habilite lo que necesita hoy y sume capacidades cuando aparezcan nuevas exigencias.",
 } as const;
 

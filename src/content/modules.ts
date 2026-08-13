@@ -1,13 +1,21 @@
 /**
- * Los ocho módulos del ecosistema.
+ * Los once módulos del ecosistema.
  *
- * Fuente: guion de locución institucional (versión más reciente).
- * El mapa de navegación lista siete; el guion añade «Hacienda e
- * Industria y Comercio» y suma la Mesa de Ayuda al Portal Ciudadano.
- * Se acordó con el cliente ir por los ocho.
+ * Fuente: guion de locución institucional (versión más reciente) más
+ * la ampliación acordada con el cliente: se suman Gestión del Riesgo
+ * y Operación Multimunicipio, y el Portal Ciudadano se separa de la
+ * Mesa de Ayuda en dos tarjetas independientes.
  *
  * El `benefit` va antes que el `name` en la interfaz: primero qué
  * gana el municipio, después cómo se llama el módulo.
+ *
+ * PROVISIONAL: `gestion-riesgo`, `operacion-multimunicipio` y
+ * `mesa-ayuda` reutilizan fotografías ya descargadas de otros
+ * módulos como imagen de ambientación temporal, para no bloquear el
+ * despliegue en la curación manual de `npm run media`. Cuando haya
+ * fotos propias para estos tres, añadir sus claves a
+ * `scripts/media-plan.mjs`, ejecutar `npm run media` y actualizar el
+ * campo `image` de cada uno.
  */
 
 import type { MediaKey } from "@/content/media";
@@ -20,7 +28,10 @@ export type ModuleIcon =
   | "compass"
   | "briefcase"
   | "chart"
-  | "users";
+  | "users"
+  | "alert"
+  | "region"
+  | "support";
 
 export type EcosystemModule = {
   id: string;
@@ -46,7 +57,7 @@ export const MODULES: readonly EcosystemModule[] = [
     name: "Visor Geográfico Inteligente",
     benefit: "Comprenda su territorio desde una sola pantalla",
     summary:
-      "El mapa vivo del municipio. Predios, redes, estratificación, uso del suelo y ordenamiento sobre la cartografía catastral real, con las normas de su territorio.",
+      "El mapa vivo del municipio en 2D y 3D: predios, redes, estratificación, uso del suelo y ordenamiento sobre la cartografía catastral real, con las normas de su territorio.",
     capabilities: [
       "Búsqueda de cualquier predio por número predial",
       "Capas activables: predial, zonas homogéneas, ordenamiento, áreas protegidas, cuencas",
@@ -65,7 +76,7 @@ export const MODULES: readonly EcosystemModule[] = [
     name: "Gestión Catastral",
     benefit: "Conozca la calidad real de su base catastral",
     summary:
-      "El inventario predial del municipio, vivo y auditado de forma permanente. No solo consulta la información: diagnostica automáticamente sus inconsistencias.",
+      "El inventario predial del municipio, vivo y auditado de forma permanente. No solo consulta: diagnostica con más de 500 validaciones automáticas y le muestra dónde están las inconsistencias.",
     capabilities: [
       "Ficha predial completa con historial de vigencias",
       "Diagnóstico físico: áreas, destinos y condiciones incoherentes",
@@ -82,9 +93,9 @@ export const MODULES: readonly EcosystemModule[] = [
     id: "gestion-tributaria",
     index: "03",
     name: "Gestión Tributaria",
-    benefit: "Recaude con seguridad jurídica, no solo más",
+    benefit: "Recaude con seguridad jurídica",
     summary:
-      "Convierte la información del territorio en ingresos. Cada liquidación es transparente, normativa y auditable, con el marco legal aplicado y visible.",
+      "Predial y alumbrado público en una sola plataforma. Cada liquidación es transparente, normativa y auditable, con el marco legal aplicado y visible.",
     capabilities: [
       "Liquidador con Ley 44 de 1990 y límites de la Ley 1995 de 2019",
       "Tratamiento de predios nuevos, cambios de uso y lotes no edificados",
@@ -103,7 +114,7 @@ export const MODULES: readonly EcosystemModule[] = [
     name: "Cartera y Cobro",
     benefit: "Sepa a quién cobrar y cuál es el siguiente paso",
     summary:
-      "Transforma la cartera municipal en una gestión organizada y trazable, con el debido proceso integrado dentro de la plataforma.",
+      "Transforme la cartera del predial y del alumbrado en una gestión organizada y trazable, con el cobro persuasivo, coactivo y el proceso judicial integrados en la plataforma.",
     capabilities: [
       "Panorama de mora: predios, impuesto, intereses y saldo total",
       "Distribución por acuerdos de pago, cobro persuasivo y coactivo",
@@ -122,7 +133,7 @@ export const MODULES: readonly EcosystemModule[] = [
     name: "Planeación y Urbanismo",
     benefit: "Expida certificados verificables el mismo día",
     summary:
-      "Licenciamiento, ordenamiento, control urbano y estratificación sobre la norma vigente de su municipio, con el acuerdo y el artículo que la sustentan.",
+      "Licenciamiento, ordenamiento, control urbano y estratificación sobre la norma vigente de su municipio, con el acuerdo y el artículo que los sustentan.",
     capabilities: [
       "Estratificación de principio a fin, visualizada sobre el mapa",
       "Actualización masiva de estratos desde plantilla",
@@ -139,9 +150,9 @@ export const MODULES: readonly EcosystemModule[] = [
     id: "hacienda-ica",
     index: "06",
     name: "Hacienda e Industria y Comercio",
-    benefit: "El comercio registrado, clasificado y al día",
+    benefit: "Encuentre el comercio que opera y no está tributando",
     summary:
-      "Administración del impuesto de industria y comercio: inscritos, actividad económica, tarifa y estado de cada contribuyente.",
+      "Levante el censo de establecimientos en campo, crúcelo con la DIAN, cámara de comercio y pagos, y detecte a los omisos. El ICA que hoy se le escapa, ubicado en el mapa.",
     capabilities: [
       "Registro de contribuyentes por actividad económica y tarifa",
       "Distinción entre activos y suspendidos",
@@ -154,8 +165,26 @@ export const MODULES: readonly EcosystemModule[] = [
     image: "moduloHacienda",
   },
   {
-    id: "analitica-territorial",
+    id: "gestion-riesgo",
     index: "07",
+    name: "Gestión del Riesgo",
+    benefit: "Anticipe el riesgo antes de que sea emergencia",
+    summary:
+      "Un sistema de información para la gestión del riesgo de desastres: ubica las zonas de amenaza sobre el mismo mapa del municipio y conecta al ciudadano y a las dependencias para prevenir y responder a tiempo.",
+    capabilities: [
+      "Mapa de zonas de amenaza y vulnerabilidad sobre el territorio",
+      "Registro y seguimiento de emergencias",
+      "Alertas tempranas a la comunidad y a las dependencias",
+      "Articulación entre Gestión del Riesgo, Planeación y Atención al Ciudadano",
+    ],
+    integrations: ["visor-geografico", "planeacion-urbanismo", "portal-ciudadano"],
+    users: ["Gestión del Riesgo", "Planeación", "Alcaldía"],
+    icon: "alert",
+    image: "equipoTecnico",
+  },
+  {
+    id: "analitica-territorial",
+    index: "08",
     name: "Analítica Territorial",
     benefit: "Gobierne con datos, no con impresiones",
     summary:
@@ -173,21 +202,54 @@ export const MODULES: readonly EcosystemModule[] = [
   },
   {
     id: "portal-ciudadano",
-    index: "08",
-    name: "Portal Ciudadano y Mesa de Ayuda",
+    index: "09",
+    name: "Portal Ciudadano",
     benefit: "Menos filas, menos papel, menos desplazamientos",
     summary:
-      "Acceso digital a consultas, certificados y trámites sin credenciales ni desplazamientos. Sobre todo para el habitante rural.",
+      "Acceso digital a consultas, certificados y trámites, sin filas ni desplazamientos, y menos carga para la atención presencial.",
     capabilities: [
       "Solicitud de trámites en línea sin necesidad de credenciales",
       "Consulta del estado de un radicado",
       "Verificación de autenticidad de documentos expedidos",
-      "Mesa de Ayuda con asistente conversacional para funcionarios",
-      "Creación y seguimiento de casos de soporte",
     ],
-    integrations: ["gestion-tributaria", "cartera-y-cobro", "gestion-catastral", "planeacion-urbanismo"],
+    integrations: ["gestion-tributaria", "cartera-y-cobro", "gestion-catastral", "planeacion-urbanismo", "mesa-ayuda"],
     users: ["Atención al Ciudadano", "Ciudadanía"],
     icon: "users",
     image: "moduloPortal",
+  },
+  {
+    id: "operacion-multimunicipio",
+    index: "10",
+    name: "Operación Multimunicipio",
+    benefit: "Un municipio o todo un departamento, en una sola plataforma",
+    summary:
+      "Terridata administra varios municipios a la vez, cada uno con su información separada e independiente. Ideal para gobernaciones y áreas metropolitanas que quieren fortalecer a sus municipios pequeños.",
+    capabilities: [
+      "Administración de varios municipios desde una sola cuenta",
+      "Información separada e independiente por municipio",
+      "Panel comparativo entre municipios de la misma gobernación o área metropolitana",
+      "Roles y permisos diferenciados por entidad",
+    ],
+    integrations: ["analitica-territorial"],
+    users: ["Gobernaciones", "Áreas Metropolitanas", "Alcaldía"],
+    icon: "region",
+    image: "ciudadCaribe",
+  },
+  {
+    id: "mesa-ayuda",
+    index: "11",
+    name: "Mesa de Ayuda",
+    benefit: "Nunca queda solo: soporte dentro de la plataforma",
+    summary:
+      "Mesa de ayuda integrada, con asistente, casos y seguimiento, para resolver cualquier duda sin salir del sistema.",
+    capabilities: [
+      "Asistente conversacional para funcionarios",
+      "Creación y seguimiento de casos de soporte",
+      "Escalamiento a soporte humano cuando el caso lo requiere",
+    ],
+    integrations: ["portal-ciudadano"],
+    users: ["Todas las dependencias"],
+    icon: "support",
+    image: "ciudadanoDigital",
   },
 ] as const;

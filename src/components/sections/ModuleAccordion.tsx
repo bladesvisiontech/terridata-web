@@ -14,9 +14,9 @@ import { cn } from "@/lib/utils";
 const MODULE_NAME_BY_ID = new Map(MODULES.map((m) => [m.id, m.name]));
 
 /**
- * Los ocho módulos en un solo lugar.
+ * Los once módulos en un solo lugar.
  *
- * Se despliegan en sitio en vez de llevar a ocho páginas: el cliente
+ * Se despliegan en sitio en vez de llevar a once páginas: el cliente
  * pidió un recorrido corto y fácil de seguir, y así el usuario compara
  * módulos sin perder el hilo ni la posición de scroll.
  *

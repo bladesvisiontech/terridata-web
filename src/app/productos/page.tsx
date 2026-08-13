@@ -21,7 +21,7 @@ import { ROUTES, WHATSAPP_INTENTS, whatsappUrl } from "@/lib/constants";
 export const metadata: Metadata = {
   title: "Productos",
   description:
-    "Los ocho módulos del ecosistema Terridata: Visor Geográfico, Gestión Catastral, Gestión Tributaria, Cartera y Cobro, Planeación y Urbanismo, Hacienda e ICA, Analítica Territorial y Portal Ciudadano.",
+    "Los once módulos del ecosistema Terridata: Visor Geográfico, Gestión Catastral, Gestión Tributaria, Cartera y Cobro, Planeación y Urbanismo, Hacienda e ICA, Gestión del Riesgo, Analítica Territorial, Portal Ciudadano, Operación Multimunicipio y Mesa de Ayuda.",
 };
 
 export default function ProductosPage() {

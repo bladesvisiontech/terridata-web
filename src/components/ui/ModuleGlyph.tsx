@@ -1,10 +1,13 @@
 import {
+  AlertTriangle,
   BarChart3,
   Briefcase,
   Coins,
   Compass,
   Layers,
+  LifeBuoy,
   Map,
+  MapPinned,
   Receipt,
   Users,
   type LucideIcon,
@@ -26,6 +29,9 @@ const GLYPHS: Record<ModuleIcon, LucideIcon> = {
   briefcase: Briefcase,
   chart: BarChart3,
   users: Users,
+  alert: AlertTriangle,
+  region: MapPinned,
+  support: LifeBuoy,
 };
 
 type ModuleGlyphProps = {

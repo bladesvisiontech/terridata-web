@@ -144,7 +144,7 @@ export const ECOSYSTEM = {
 export const MODULES_SECTION = {
   eyebrow: "El ecosistema",
   headline: ["Soluciones que responden", "a desafíos reales."],
-  body: "Cada módulo se activa de forma independiente sobre la información que el municipio ya tiene cargada. Empiece por donde más le urge y sume capacidades cuando las necesite.",
+  body: "Cada módulo se activa de forma independiente sobre la información que el municipio ya tiene cargada. Empiece por lo que más necesita hoy y sume capacidades cuando las requiera.",
   cta: "Ver todos los módulos",
 } as const;
 
