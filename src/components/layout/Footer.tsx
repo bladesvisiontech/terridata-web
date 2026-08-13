@@ -1,4 +1,4 @@
-import { MessageCircle, Phone } from "lucide-react";
+import { Mail, MessageCircle } from "lucide-react";
 import Link from "next/link";
 
 import { Container } from "@/components/ui/Container";
@@ -49,7 +49,7 @@ export function Footer() {
                 href={`mailto:${CONTACT.email}`}
                 className="inline-flex min-h-11 items-center gap-2.5 text-[0.9375rem] font-medium text-cream-50 transition-colors hover:text-cream-300"
               >
-                <Phone aria-hidden strokeWidth={1.75} className="size-4" />
+                <Mail aria-hidden strokeWidth={1.75} className="size-4" />
                 {CONTACT.email}
               </a>
             </div>
