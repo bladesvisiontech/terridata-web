@@ -174,20 +174,51 @@ export const MODULARITY = {
   ],
 } as const;
 
+export type BenefitIcon = "coins" | "clock" | "chart" | "users";
+
 export const BENEFITS = {
   eyebrow: "Resultados",
-  headline: ["Tecnología que fortalece", "la gestión pública."],
-  items: [
-    "Información centralizada",
-    "Mayor coordinación institucional",
-    "Mejor planificación territorial",
-    "Fortalecimiento del recaudo",
-    "Automatización de procesos",
-    "Información geográfica integrada",
-    "Reducción de tiempos administrativos",
-    "Mayor capacidad de análisis",
-    "Mejor atención al ciudadano",
-    "Decisiones basadas en datos",
+  headline: ["Resultados que se ven", "en el recaudo y en la gestión."],
+  categories: [
+    {
+      id: "ingresos",
+      icon: "coins",
+      title: "Más ingresos",
+      items: [
+        "Más ingresos propios con respaldo legal",
+        "Comercio omiso puesto a tributar",
+        "Cartera bajo control",
+      ],
+    },
+    {
+      id: "costo-tiempo",
+      icon: "clock",
+      title: "Menos costo y tiempo",
+      items: [
+        "Una sola fuente de información",
+        "Trámites en minutos",
+        "Menos trabajo manual y menos errores",
+      ],
+    },
+    {
+      id: "decisiones",
+      icon: "chart",
+      title: "Mejores decisiones",
+      items: [
+        "Todo el municipio sobre un mismo mapa",
+        "Indicadores en tiempo real",
+        "Decisiones con datos, no con supuestos",
+      ],
+    },
+    {
+      id: "servicio",
+      icon: "users",
+      title: "Mejor servicio",
+      items: [
+        "Atención al ciudadano sin filas ni desplazamientos",
+        "Dependencias sobre la misma información",
+      ],
+    },
   ],
 } as const;
 
