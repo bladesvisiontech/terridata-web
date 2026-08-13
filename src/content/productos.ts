@@ -47,5 +47,5 @@ export const PRODUCTOS_MODULES = {
 export const PRODUCTOS_CTA = {
   eyebrow: "El siguiente paso",
   headline: ["Empiece con la necesidad", "de hoy. Evolucione con", "la visión del mañana."],
-  body: "Le mostramos la plataforma funcionando con el módulo que más le urja y le explicamos cómo se implementaría en su municipio.",
+  body: "Le mostramos la plataforma funcionando con el módulo que más necesita hoy y le explicamos cómo se implementaría en su municipio.",
 } as const;
