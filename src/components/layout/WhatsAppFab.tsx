@@ -60,7 +60,9 @@ export function WhatsAppFab() {
           exit={reduceMotion ? undefined : { opacity: 0, scale: 0.85, y: 8 }}
           transition={{ duration: 0.28, ease: [0.16, 1, 0.3, 1] }}
           className={cn(
-            "fixed right-5 z-40 sm:right-7",
+            // En móvil "Asesor" ya vive en la barra fija inferior del
+            // header; el FAB solo suma en escritorio.
+            "fixed right-5 z-40 hidden lg:block lg:right-7",
             // Se apoya en el área segura para no quedar bajo la barra
             // de gestos del teléfono.
             "bottom-[calc(1.25rem+env(safe-area-inset-bottom))]",

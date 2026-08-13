@@ -81,8 +81,12 @@ export default function RootLayout({
     >
       <body className="flex min-h-dvh flex-col antialiased">
         <Header />
-        {/* Compensa la altura del header fijo (h-18 = 4.5rem). */}
-        <main id="contenido" className="flex-1 pt-18">
+        {/* Compensa la altura del header fijo (h-18 = 4.5rem) y, en
+            móvil, la barra fija inferior (h-16 + área segura). */}
+        <main
+          id="contenido"
+          className="flex-1 pt-18 pb-[calc(4rem+env(safe-area-inset-bottom))] lg:pb-0"
+        >
           {children}
         </main>
         <Footer />
