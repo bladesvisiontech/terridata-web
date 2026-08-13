@@ -10,7 +10,7 @@
   /* 800 es el único verde válido como texto sobre crema.     */
   --color-green-50: #edf5f1;
   --color-green-100: #d6e8df;
-  --color-green-200: #afd1c1;
+  --color-green-200: #b0e5d3; /* verde claro de las cifras, dado por el cliente */
   --color-green-300: #7fb49d;
   --color-green-400: #52977c;
   --color-green-500: #387e66;

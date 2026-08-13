@@ -13,9 +13,9 @@ import { ROUTES, WHATSAPP_INTENTS, whatsappUrl } from "@/lib/constants";
 /**
  * Apertura sobre fondo claro, con el video institucional a la derecha.
  *
- * El fondo lleva la superficie técnica —matriz de puntos y halos de
- * verde— en vez de color macizo: da el aire tecnológico sin robarle
- * contraste al texto, que aquí es tinta sobre casi blanco.
+ * La superficie técnica —matriz de puntos y halos de verde— la aporta
+ * el `<TechSurface>` que envuelve este bloque y los dos siguientes,
+ * para que sea continua y no se corte en cada frontera.
  *
  * Contraste medido en el navegador:
  *   titular en tinta ............... 18.9:1
@@ -27,7 +27,6 @@ export function Hero() {
     <Section
       tone="paper"
       spacing="none"
-      backdrop="both"
       className="pb-(--spacing-section) pt-12 lg:pt-16"
     >
       <Container>

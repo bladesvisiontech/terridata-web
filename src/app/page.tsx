@@ -10,6 +10,7 @@ import { Modularity } from "@/components/sections/Modularity";
 import { Modules } from "@/components/sections/Modules";
 import { Showcase } from "@/components/sections/Showcase";
 import { TrustBand } from "@/components/sections/TrustBand";
+import { TechSurface } from "@/components/ui/TechSurface";
 
 /**
  * El recorrido de la página sigue el argumento del guion comercial:
@@ -19,9 +20,15 @@ import { TrustBand } from "@/components/sections/TrustBand";
 export default function HomePage() {
   return (
     <>
-      <Hero />
-      <TrustBand />
-      <Challenge />
+      {/* La superficie técnica cubre el tramo de apertura de una sola
+          pieza: por secciones, cada una repetiría sus halos y dejaría
+          costura en cada frontera. */}
+      <TechSurface>
+        <Hero />
+        <TrustBand />
+        <Challenge />
+      </TechSurface>
+
       <Showcase />
       <Ecosystem />
       <Modules />
