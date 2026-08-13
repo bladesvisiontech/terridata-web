@@ -1,14 +1,12 @@
 "use client";
 
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import { ArrowUpRight, Check, MessageCircle, Plus } from "lucide-react";
+import { ArrowUpRight, Check, Plus } from "lucide-react";
 import { useCallback, useEffect, useState, useSyncExternalStore } from "react";
 
 import { BrandImage } from "@/components/ui/BrandImage";
-import { ButtonLink } from "@/components/ui/Button";
 import { ModuleGlyph } from "@/components/ui/ModuleGlyph";
 import { MODULES, type EcosystemModule } from "@/content/modules";
-import { WHATSAPP_INTENTS, whatsappUrl } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
 const MODULE_NAME_BY_ID = new Map(MODULES.map((m) => [m.id, m.name]));
@@ -246,36 +244,37 @@ function ModuleRow({
                   </div>
 
                   <div>
-                    <p className="eyebrow text-ink-500">Comparte información con</p>
-                    <ul className="mt-3.5 flex flex-col gap-1">
-                      {module.integrations.map((id) => (
-                        <li key={id}>
-                          <a
-                            href={`#${id}`}
-                            className="inline-flex min-h-8 items-center gap-1.5 text-[0.8125rem] text-green-800 transition-colors hover:text-green-900"
-                          >
-                            {MODULE_NAME_BY_ID.get(id)}
-                            <ArrowUpRight
-                              aria-hidden
-                              strokeWidth={2}
-                              className="size-3.5"
-                            />
-                          </a>
-                        </li>
-                      ))}
-                    </ul>
+                    {module.availability ? (
+                      <>
+                        <p className="eyebrow text-ink-500">Disponible en</p>
+                        <p className="mt-3.5 text-[0.8125rem] text-ink-700">
+                          {module.availability}
+                        </p>
+                      </>
+                    ) : (
+                      <>
+                        <p className="eyebrow text-ink-500">Comparte información con</p>
+                        <ul className="mt-3.5 flex flex-col gap-1">
+                          {module.integrations.map((id) => (
+                            <li key={id}>
+                              <a
+                                href={`#${id}`}
+                                className="inline-flex min-h-8 items-center gap-1.5 text-[0.8125rem] text-green-800 transition-colors hover:text-green-900"
+                              >
+                                {MODULE_NAME_BY_ID.get(id)}
+                                <ArrowUpRight
+                                  aria-hidden
+                                  strokeWidth={2}
+                                  className="size-3.5"
+                                />
+                              </a>
+                            </li>
+                          ))}
+                        </ul>
+                      </>
+                    )}
                   </div>
                 </div>
-              </div>
-
-              <div className="mt-8 border-t border-ink/10 pt-6">
-                <ButtonLink
-                  href={whatsappUrl(WHATSAPP_INTENTS.module(module.name))}
-                  external
-                >
-                  <MessageCircle aria-hidden strokeWidth={1.75} className="size-4" />
-                  Ver este módulo en funcionamiento
-                </ButtonLink>
               </div>
             </div>
           </motion.div>
