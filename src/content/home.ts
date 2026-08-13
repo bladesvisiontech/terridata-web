@@ -119,21 +119,26 @@ export const CHALLENGE = {
 
 export const ECOSYSTEM = {
   eyebrow: "Un solo dato, una sola verdad",
-  headline: ["Todo el municipio", "conectado desde una", "sola plataforma."],
-  body: "Lo que hace diferente a Terridata no es cada módulo por separado. Es que todos se alimentan de la misma información.",
+  headline: ["Una sola fuente de", "información para todas", "las dependencias."],
+  body: "La fuerza de Terridata no está en cada módulo por separado, sino en que todos leen y escriben sobre la misma información. Un solo dato, sin versiones que se contradicen.",
   narrative:
-    "El predio que ve en el mapa es el mismo que consulta Catastro, el mismo sobre el que Hacienda liquida el impuesto, el mismo que aparece en cartera y el mismo sobre el que Urbanismo expide un certificado.",
-  /** Dependencias que orbitan el núcleo en el diagrama. */
-  departments: [
-    "Alcaldía",
-    "Hacienda",
-    "Planeación",
-    "Catastro",
-    "Tesorería",
-    "Atención al Ciudadano",
-  ],
+    "Todo se apoya en un mismo territorio georreferenciado. Sobre ese mapa vive el predio que Catastro administra, Hacienda liquida y Cartera cobra; el establecimiento que se censa y controla en el ICA; y la zona de riesgo que puede afectarlo. Cada dependencia trabaja sobre la misma realidad, y el ciudadano hace todos sus trámites por un solo portal.",
   outcome:
-    "Se acaba la digitación repetida entre dependencias, que es justamente donde nacen los errores y los reprocesos.",
+    "Se acaba la digitación repetida entre dependencias, que es donde nacen los errores, los reprocesos y la información que nunca cuadra.",
+  /*
+   * Capas del diagrama, de arriba abajo. El orden importa: son estratos
+   * apilados sobre el territorio, no una lista.
+   */
+  layers: [
+    { name: "Portal Ciudadano", detail: "Trámites en un solo punto" },
+    { name: "Cartera y Cobro", detail: "Obligaciones y recuperación" },
+    { name: "Hacienda e ICA", detail: "Liquidación y comercio" },
+    { name: "Catastro", detail: "Inventario predial" },
+  ],
+  base: {
+    name: "Territorio georreferenciado",
+    detail: "La misma realidad para todas las dependencias",
+  },
 } as const;
 
 export const MODULES_SECTION = {

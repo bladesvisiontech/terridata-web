@@ -57,9 +57,14 @@ El lenguaje visual sale del oficio del cliente: **el plano catastral**.
   volver al cuadriculado, y `tech-glow`, dos halos de verde muy abiertos que
   aportan profundidad. Se reserva para los bloques de apertura: puesta en todas
   las secciones deja de ser un acento y se vuelve ruido.
-- **Los predios** del visor se generan por subdivisión recursiva determinista
-  (`src/lib/parcels.ts`). La semilla es fija: el servidor y el cliente tienen que
-  trazar exactamente lo mismo o React marca error de hidratación.
+- **Los predios** del visor y de la base del diagrama de capas se generan por
+  subdivisión recursiva determinista (`src/lib/parcels.ts`). La semilla es fija:
+  el servidor y el cliente tienen que trazar exactamente lo mismo o React marca
+  error de hidratación.
+- **El diagrama del ecosistema** (`LayerStack`) es una pila isométrica, no una
+  órbita: el copy dice que todo se apoya sobre un mismo territorio
+  georreferenciado, que es un apilado de capas temáticas sobre una base común,
+  como en un SIG real — no dependencias satélite alrededor de un núcleo.
 - **El bisel** (`.notch-diag`, `.notch-top`, `.notch-br`, `.notch-tr`,
   `.notch-bl`) es el corte diagonal que firma el sitio. Va con `clip-path` y no
   con bordes girados: recorta de verdad, así que también corta la foto o el
@@ -158,6 +163,15 @@ registrados en `extendTailwindMerge` en `src/lib/utils.ts`. Sin eso,
 `tailwind-merge` los toma por colores y `cn("text-display-xl", "text-ink")`
 descarta el tamaño: el titular se queda en 16 px. **Al añadir un tamaño a
 `tokens.css` hay que añadirlo también ahí.**
+
+## Medir contraste
+
+`getComputedStyle` devuelve `oklab(... / alfa)` para cualquier color con
+transparencia —`text-cream-50/75` es uno—, y un parser de RGB con regex lee el
+primer número de esa cadena como si fuera el canal rojo: da ratios absurdos
+como 1.4:1 sobre texto perfectamente legible. Pasó una vez y casi se reporta
+como hallazgo real. La forma fiable es muestrear los píxeles ya compuestos de
+una captura de pantalla, no el color computado del elemento.
 
 ## Seguridad
 

@@ -2,7 +2,7 @@ import { Reveal } from "@/components/motion/Reveal";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { EcosystemDiagram } from "@/components/visuals/EcosystemDiagram";
+import { LayerStack } from "@/components/visuals/LayerStack";
 import { ECOSYSTEM } from "@/content/home";
 
 export function Ecosystem() {
@@ -32,7 +32,7 @@ export function Ecosystem() {
             </Reveal>
           </div>
 
-          <EcosystemDiagram departments={ECOSYSTEM.departments} />
+          <LayerStack />
         </div>
       </Container>
     </Section>
