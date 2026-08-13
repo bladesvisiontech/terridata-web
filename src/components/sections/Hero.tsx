@@ -30,8 +30,16 @@ export function Hero() {
       className="pb-(--spacing-section) pt-12 lg:pt-16"
     >
       <Container>
-        <div className="grid items-center gap-12 lg:grid-cols-[1fr_1.1fr] lg:gap-16">
-          <div>
+        <div className="grid items-center gap-10 lg:grid-cols-[1fr_1.1fr] lg:gap-16">
+          {/*
+           * En móvil el video va arriba y el texto debajo; en pantallas
+           * anchas vuelven a su sitio.
+           *
+           * El reordenado es visual, con `order`: en el DOM el bloque de
+           * texto sigue primero para que el `h1` sea lo primero que
+           * encuentran los buscadores y los lectores de pantalla.
+           */}
+          <div className="order-2 lg:order-1">
             {/* El hero ya está en pantalla al cargar: anima al montar. */}
             <Reveal trigger="mount">
               <Eyebrow>{HERO.eyebrow}</Eyebrow>
@@ -68,7 +76,12 @@ export function Hero() {
             </Reveal>
           </div>
 
-          <Reveal trigger="mount" delay={0.3} distance={28}>
+          <Reveal
+            trigger="mount"
+            delay={0.3}
+            distance={28}
+            className="order-1 lg:order-2"
+          >
             <HeroVideo />
           </Reveal>
         </div>

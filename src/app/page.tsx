@@ -21,14 +21,15 @@ export default function HomePage() {
   return (
     <>
       {/* La superficie técnica cubre el tramo de apertura de una sola
-          pieza: por secciones, cada una repetiría sus halos y dejaría
-          costura en cada frontera. */}
+          pieza —por secciones, cada una repetiría sus halos y dejaría
+          costura en cada frontera— y se corta justo donde arranca el
+          bloque de retos. */}
       <TechSurface>
         <Hero />
         <TrustBand />
-        <Challenge />
       </TechSurface>
 
+      <Challenge />
       <Showcase />
       <Ecosystem />
       <Modules />

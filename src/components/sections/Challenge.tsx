@@ -8,7 +8,7 @@ import { CHALLENGE } from "@/content/home";
 
 export function Challenge() {
   return (
-    <Section tone="paper">
+    <Section tone="cream">
       <Container>
         <div className="grid items-end gap-12 lg:grid-cols-[1.15fr_1fr] lg:gap-16">
           <SectionHeading
@@ -35,7 +35,7 @@ export function Challenge() {
             <StaggerItem
               as="li"
               key={item.index}
-              className="flex flex-col bg-cream-50 p-7"
+              className="flex flex-col bg-cream-200 p-7"
             >
               <span className="font-mono text-[0.6875rem] tracking-[0.16em] text-green-800">
                 {item.index}
