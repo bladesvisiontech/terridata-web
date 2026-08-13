@@ -51,6 +51,8 @@ const CSP = [
   // next/font autoaloja las tipografías durante el build.
   "font-src 'self' data:",
   "img-src 'self' blob: data:",
+  // El video del hero se sirve desde el propio dominio.
+  "media-src 'self'",
   "connect-src 'self'",
   "object-src 'none'",
   "base-uri 'self'",

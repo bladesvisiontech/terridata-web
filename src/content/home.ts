@@ -37,7 +37,7 @@ export const HERO = {
     "decisiones",
     "estratégicas.",
   ],
-  body: "Terridata integra la información geográfica, catastral, tributaria, urbanística y administrativa en un único ecosistema tecnológico para fortalecer la gestión pública.",
+  body: "Terridata integra la información geográfica, catastral, tributaria, urbanística y administrativa en un solo sistema. Una plataforma que se adapta a las necesidades y a la realidad de su municipio.",
 } as const;
 
 /** Cifras de la franja de apertura. */
@@ -46,6 +46,26 @@ export const STATS_BAND = [
   { value: 8, suffix: "", label: "Módulos conectados" },
   { value: 100, suffix: " %", label: "Web, sin instalaciones locales" },
 ] as const;
+
+/**
+ * Video institucional de apertura.
+ *
+ * Lo aporta el cliente y lleva narración con subtítulos incrustados en
+ * la propia imagen.
+ *
+ * PENDIENTE: los subtítulos van quemados en el video, así que no hay
+ * pista de texto seleccionable ni transcripción. Para cumplir WCAG
+ * 1.2.2 conviene pedirle al cliente el guion y añadir un `<track>` de
+ * subtítulos, o publicar la transcripción junto al video.
+ */
+export const HERO_VIDEO = {
+  src: "/media/hero.mp4",
+  poster: "/media/hero-poster.jpg",
+  description:
+    "Video institucional de Terridata: vistas aéreas de municipios colombianos y de la plataforma en uso, con narración sobre los retos de la gestión territorial.",
+  fallback:
+    "Su navegador no puede reproducir este video. Escríbanos por WhatsApp y se lo compartimos.",
+} as const;
 
 export const TRUST = {
   label: "Confían en Terridata",

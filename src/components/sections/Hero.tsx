@@ -1,5 +1,4 @@
 import { ArrowRight, MessageCircle } from "lucide-react";
-import Image from "next/image";
 
 import { Reveal } from "@/components/motion/Reveal";
 import { TextReveal } from "@/components/motion/TextReveal";
@@ -7,36 +6,37 @@ import { ButtonLink } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Section } from "@/components/ui/Section";
+import { HeroVideo } from "@/components/visuals/HeroVideo";
 import { HERO } from "@/content/home";
 import { ROUTES, WHATSAPP_INTENTS, whatsappUrl } from "@/lib/constants";
 
-import heroBanner from "../../../public/brand/hero-banner.png";
-
 /**
- * Apertura en dos columnas: argumento a la izquierda, banner a la
+ * Apertura sobre verde oscuro, con el video institucional a la
  * derecha.
  *
- * El banner es material propio del cliente y trae capturas reales de
- * la plataforma, así que sustituye al mosaico que se había montado
- * con fotografía de stock.
+ * Contraste sobre `green-900` (#133024), medido en el navegador:
+ *   titular en crema 50 ............ 14.0:1
+ *   párrafo en crema 50 al 78 % ..... 9.1:1
+ *   (mínimo AA para texto normal: 4.5:1)
  *
- * Se importa el PNG en vez de referenciar la ruta como cadena para que
- * Next conozca sus medidas en compilación y reserve el hueco: sin eso
- * la columna da un salto al cargar la imagen.
+ * El botón principal invierte —fondo crema, texto verde— porque el
+ * verde 500 de marca sobre el verde 900 del fondo se queda en 3.1:1 y
+ * el botón dejaría de distinguirse del bloque.
  */
 export function Hero() {
   return (
     <Section
-      tone="paper"
+      tone="deep"
       spacing="none"
-      className="pb-(--spacing-section-tight) pt-10 lg:pt-14"
+      notch="diag"
+      className="pb-(--spacing-section) pt-14 lg:pt-20"
     >
       <Container>
-        <div className="grid items-center gap-12 lg:grid-cols-[1fr_1.05fr] lg:gap-16">
+        <div className="grid items-center gap-12 lg:grid-cols-[1fr_1.1fr] lg:gap-16">
           <div>
             {/* El hero ya está en pantalla al cargar: anima al montar. */}
             <Reveal trigger="mount">
-              <Eyebrow>{HERO.eyebrow}</Eyebrow>
+              <Eyebrow tone="inverse">{HERO.eyebrow}</Eyebrow>
             </Reveal>
 
             <TextReveal
@@ -45,20 +45,29 @@ export function Hero() {
               delay={0.1}
               lines={HERO.headlineSplit}
               linesMobile={HERO.headlineMobile}
-              className="mt-6 text-display-lg text-ink"
+              className="mt-6 text-display-lg text-cream-50"
             />
 
             <Reveal trigger="mount" delay={0.45}>
-              <p className="mt-7 max-w-xl text-lead text-ink-700">{HERO.body}</p>
+              <p className="mt-7 max-w-xl text-lead text-cream-50/78">{HERO.body}</p>
             </Reveal>
 
             <Reveal trigger="mount" delay={0.58}>
               <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-                <ButtonLink href={whatsappUrl(WHATSAPP_INTENTS.demo)} external size="lg">
+                <ButtonLink
+                  href={whatsappUrl(WHATSAPP_INTENTS.demo)}
+                  external
+                  variant="inverse"
+                  size="lg"
+                >
                   <MessageCircle aria-hidden strokeWidth={1.75} className="size-[1.125rem]" />
                   Solicitar demostración
                 </ButtonLink>
-                <ButtonLink href={ROUTES.productos} variant="secondary" size="lg">
+                <ButtonLink
+                  href={ROUTES.productos}
+                  size="lg"
+                  className="border border-cream-50/30 bg-transparent text-cream-50 hover:bg-cream-50/10"
+                >
                   Conocer el ecosistema
                   <ArrowRight
                     aria-hidden
@@ -71,13 +80,7 @@ export function Hero() {
           </div>
 
           <Reveal trigger="mount" delay={0.3} distance={28}>
-            <Image
-              src={heroBanner}
-              alt="Plataforma Terridata: consulta de un trámite en el sistema, un ciudadano con su recibo de impuesto predial y una vista aérea de un municipio colombiano"
-              priority
-              sizes="(max-width: 1024px) 100vw, 680px"
-              className="h-auto w-full"
-            />
+            <HeroVideo />
           </Reveal>
         </div>
       </Container>
