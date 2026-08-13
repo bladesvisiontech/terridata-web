@@ -40,11 +40,16 @@ export const HERO = {
   body: "Terridata integra la información geográfica, catastral, tributaria, urbanística y administrativa en un solo sistema. Una plataforma que se adapta a las necesidades y a la realidad de su municipio.",
 } as const;
 
-/** Cifras de la franja de apertura. */
+/**
+ * Cifras de la franja de apertura.
+ *
+ * Dos, no tres: el cliente retiró «8 módulos conectados» porque el
+ * número de módulos ya se cuenta en la sección del ecosistema y aquí
+ * competía con las dos cifras que sí son argumento de venta.
+ */
 export const STATS_BAND = [
   { value: 20, suffix: "+", label: "Años en gestión territorial" },
-  { value: 8, suffix: "", label: "Módulos conectados" },
-  { value: 100, suffix: " %", label: "Web, sin instalaciones locales" },
+  { value: 100, suffix: "%", label: "Web, sin instalaciones locales" },
 ] as const;
 
 /**
