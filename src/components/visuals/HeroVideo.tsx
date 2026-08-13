@@ -96,7 +96,7 @@ export function HeroVideo({ className }: { className?: string }) {
         preload="metadata"
         poster={HERO_VIDEO.poster}
         aria-label={HERO_VIDEO.description}
-        className="notch-br block w-full rounded-2xl bg-green-900"
+        className="notch-br block w-full rounded-2xl bg-green-900 shadow-[0_24px_60px_-24px_rgba(11,8,17,0.35)]"
       >
         <source src={HERO_VIDEO.src} type="video/mp4" />
         {HERO_VIDEO.fallback}

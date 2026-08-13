@@ -14,6 +14,14 @@ type SectionProps = {
    * de color macizo, que son las que cierran un tramo.
    */
   notch?: "none" | "diag" | "top";
+  /**
+   * Superficie técnica de fondo. `dots` es la matriz de puntos,
+   * `glow` los halos de verde, `both` las dos.
+   *
+   * Se reserva para los bloques de apertura: puesta en todas las
+   * secciones deja de ser un acento y se convierte en ruido.
+   */
+  backdrop?: "none" | "dots" | "glow" | "both";
 };
 
 const TONE_CLASS = {
@@ -36,7 +44,11 @@ export function Section({
   tone = "paper",
   spacing = "default",
   notch = "none",
+  backdrop = "none",
 }: SectionProps) {
+  const showGlow = backdrop === "glow" || backdrop === "both";
+  const showDots = backdrop === "dots" || backdrop === "both";
+
   return (
     <section
       id={id}
@@ -53,6 +65,17 @@ export function Section({
         className,
       )}
     >
+      {/* Los halos van debajo de los puntos: primero la profundidad,
+          después la trama encima. */}
+      {showGlow ? (
+        <div aria-hidden className="tech-glow pointer-events-none absolute inset-0 -z-20" />
+      ) : null}
+      {showDots ? (
+        <div
+          aria-hidden
+          className="tech-dots tech-fade pointer-events-none absolute inset-0 -z-10"
+        />
+      ) : null}
       {children}
     </section>
   );

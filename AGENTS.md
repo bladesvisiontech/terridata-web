@@ -51,7 +51,12 @@ El lenguaje visual sale del oficio del cliente: **el plano catastral**.
   imperceptible, aplicado al `body` y **no por sección**: repetido en cada bloque
   crearía una costura visible en cada frontera. Por eso `Section tone="paper"` es
   transparente y deja pasar el degradado. Hubo antes una retícula catastral de
-  fondo; se retiró a petición del cliente y no debe reintroducirse sin acordarlo.
+  cuadros; se retiró a petición del cliente y no debe reintroducirse.
+- **La superficie técnica** (`backdrop` en `<Section>`) es lo que ocupó su lugar:
+  `tech-dots`, una matriz de puntos finos que da precisión de instrumento sin
+  volver al cuadriculado, y `tech-glow`, dos halos de verde muy abiertos que
+  aportan profundidad. Se reserva para los bloques de apertura: puesta en todas
+  las secciones deja de ser un acento y se vuelve ruido.
 - **Los predios** del visor se generan por subdivisión recursiva determinista
   (`src/lib/parcels.ts`). La semilla es fija: el servidor y el cliente tienen que
   trazar exactamente lo mismo o React marca error de hidratación.

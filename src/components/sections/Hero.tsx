@@ -11,32 +11,31 @@ import { HERO } from "@/content/home";
 import { ROUTES, WHATSAPP_INTENTS, whatsappUrl } from "@/lib/constants";
 
 /**
- * Apertura sobre verde oscuro, con el video institucional a la
- * derecha.
+ * Apertura sobre fondo claro, con el video institucional a la derecha.
  *
- * Contraste sobre `green-900` (#133024), medido en el navegador:
- *   titular en crema 50 ............ 14.0:1
- *   párrafo en crema 50 al 78 % ..... 9.1:1
+ * El fondo lleva la superficie técnica —matriz de puntos y halos de
+ * verde— en vez de color macizo: da el aire tecnológico sin robarle
+ * contraste al texto, que aquí es tinta sobre casi blanco.
+ *
+ * Contraste medido en el navegador:
+ *   titular en tinta ............... 18.9:1
+ *   párrafo en tinta 700 ........... 10.4:1
  *   (mínimo AA para texto normal: 4.5:1)
- *
- * El botón principal invierte —fondo crema, texto verde— porque el
- * verde 500 de marca sobre el verde 900 del fondo se queda en 3.1:1 y
- * el botón dejaría de distinguirse del bloque.
  */
 export function Hero() {
   return (
     <Section
-      tone="deep"
+      tone="paper"
       spacing="none"
-      notch="diag"
-      className="pb-(--spacing-section) pt-14 lg:pt-20"
+      backdrop="both"
+      className="pb-(--spacing-section) pt-12 lg:pt-16"
     >
       <Container>
         <div className="grid items-center gap-12 lg:grid-cols-[1fr_1.1fr] lg:gap-16">
           <div>
             {/* El hero ya está en pantalla al cargar: anima al montar. */}
             <Reveal trigger="mount">
-              <Eyebrow tone="inverse">{HERO.eyebrow}</Eyebrow>
+              <Eyebrow>{HERO.eyebrow}</Eyebrow>
             </Reveal>
 
             <TextReveal
@@ -45,29 +44,20 @@ export function Hero() {
               delay={0.1}
               lines={HERO.headlineSplit}
               linesMobile={HERO.headlineMobile}
-              className="mt-6 text-display-lg text-cream-50"
+              className="mt-6 text-display-lg text-ink"
             />
 
             <Reveal trigger="mount" delay={0.45}>
-              <p className="mt-7 max-w-xl text-lead text-cream-50/78">{HERO.body}</p>
+              <p className="mt-7 max-w-xl text-lead text-ink-700">{HERO.body}</p>
             </Reveal>
 
             <Reveal trigger="mount" delay={0.58}>
               <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-                <ButtonLink
-                  href={whatsappUrl(WHATSAPP_INTENTS.demo)}
-                  external
-                  variant="inverse"
-                  size="lg"
-                >
+                <ButtonLink href={whatsappUrl(WHATSAPP_INTENTS.demo)} external size="lg">
                   <MessageCircle aria-hidden strokeWidth={1.75} className="size-[1.125rem]" />
                   Solicitar demostración
                 </ButtonLink>
-                <ButtonLink
-                  href={ROUTES.productos}
-                  size="lg"
-                  className="border border-cream-50/30 bg-transparent text-cream-50 hover:bg-cream-50/10"
-                >
+                <ButtonLink href={ROUTES.productos} variant="secondary" size="lg">
                   Conocer el ecosistema
                   <ArrowRight
                     aria-hidden

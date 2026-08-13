@@ -147,6 +147,55 @@
     }
   }
 
+  /* ----------------------------------------------------------
+     Superficie técnica.
+
+     Sustituye a la retícula de cuadros que se retiró. Son dos capas
+     independientes que pueden usarse sueltas o juntas:
+
+     · `tech-dots`  — matriz de puntos finos. Da precisión de
+       instrumento sin volver al cuadriculado.
+     · `tech-glow`  — dos halos de verde de marca, muy abiertos y muy
+       tenues. Aportan profundidad y separan el bloque del blanco
+       plano de la página.
+
+     Ambas van por debajo del contenido y con opacidades bajas a
+     propósito: el texto de encima es tinta sobre casi blanco y
+     cualquier trama densa le come contraste.
+     ---------------------------------------------------------- */
+  .tech-dots {
+    background-image: radial-gradient(
+      circle,
+      color-mix(in oklab, var(--color-ink) 13%, transparent) 1px,
+      transparent 1px
+    );
+    background-size: 22px 22px;
+  }
+
+  .tech-glow {
+    background-image:
+      radial-gradient(
+        60rem 40rem at 78% 18%,
+        color-mix(in oklab, var(--color-green-500) 16%, transparent),
+        transparent 70%
+      ),
+      radial-gradient(
+        48rem 34rem at 8% 72%,
+        color-mix(in oklab, var(--color-green-300) 14%, transparent),
+        transparent 70%
+      );
+  }
+
+  /* Desvanece la trama hacia los bordes para que no corte en seco
+     contra el final del bloque. */
+  .tech-fade {
+    mask-image: radial-gradient(
+      ellipse 90% 75% at 50% 45%,
+      #000 40%,
+      transparent 100%
+    );
+  }
+
   /* Ficha de datos flotante sobre fotografía. */
   .data-chip {
     background-color: color-mix(in oklab, var(--color-cream-50) 94%, transparent);

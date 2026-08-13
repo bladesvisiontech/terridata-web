@@ -30,6 +30,7 @@ export default function ProductosPage() {
       <Section
         tone="paper"
         spacing="none"
+        backdrop="both"
         className="pb-(--spacing-section-tight) pt-14 lg:pt-20"
       >
         <Container>
