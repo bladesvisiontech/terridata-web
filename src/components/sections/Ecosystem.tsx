@@ -9,8 +9,8 @@ export function Ecosystem() {
   return (
     <Section tone="paper">
       <Container>
-        <div className="grid items-center gap-16 lg:grid-cols-[1fr_1.05fr]">
-          <div>
+        <div className="grid items-center gap-10 lg:grid-cols-[1fr_1.05fr] lg:gap-16">
+          <div className="order-2 lg:order-1">
             <SectionHeading
               eyebrow={ECOSYSTEM.eyebrow}
               headline={ECOSYSTEM.headline}
@@ -32,7 +32,7 @@ export function Ecosystem() {
             </Reveal>
           </div>
 
-          <LayerStack />
+          <LayerStack className="order-1 lg:order-2" />
         </div>
       </Container>
     </Section>
