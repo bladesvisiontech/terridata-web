@@ -129,8 +129,8 @@ export function Header() {
       </header>
 
       {/* Barra fija inferior en móvil: el disparador del menú vive aquí
-          y no arriba, así "Asesor" y "Solicitar demostración" quedan a
-          un toque sin depender de scroll ni de abrir el panel primero. */}
+          y no arriba, así "Hablar con un asesor" queda a un toque sin
+          depender de scroll ni de abrir el panel primero. */}
       <div
         className={cn(
           "fixed inset-x-0 bottom-0 z-50 flex lg:hidden",
@@ -144,7 +144,7 @@ export function Header() {
           aria-expanded={menuOpen}
           className={cn(
             "flex h-16 flex-1 cursor-pointer flex-col items-center justify-center gap-1",
-            "border-r border-t border-ink/10 text-ink transition-colors duration-(--duration-fast)",
+            "border-t border-ink/10 text-ink transition-colors duration-(--duration-fast)",
             "hover:bg-ink/[0.03]",
           )}
         >
@@ -156,28 +156,14 @@ export function Header() {
           href={whatsappUrl(WHATSAPP_INTENTS.advisor)}
           target="_blank"
           rel="noopener noreferrer"
-          aria-label="Hablar con un asesor por WhatsApp"
           className={cn(
             "flex h-16 flex-1 flex-col items-center justify-center gap-1",
-            "border-t border-ink/10 text-ink transition-colors duration-(--duration-fast)",
-            "hover:bg-ink/[0.03]",
-          )}
-        >
-          <MessageCircle aria-hidden strokeWidth={1.75} className="size-5" />
-          <span className="text-[0.6875rem] font-semibold">Asesor</span>
-        </a>
-
-        <a
-          href={whatsappUrl(WHATSAPP_INTENTS.demo)}
-          target="_blank"
-          rel="noopener noreferrer"
-          className={cn(
-            "flex h-16 basis-[45%] flex-col items-center justify-center px-3",
-            "border-t border-green-500 bg-green-500 text-center text-cream-50",
+            "border-t border-green-500 bg-green-500 text-cream-50",
             "transition-colors duration-(--duration-fast) hover:bg-green-600",
           )}
         >
-          <span className="text-xs leading-tight font-bold">Solicitar demostración</span>
+          <MessageCircle aria-hidden strokeWidth={1.75} className="size-5" />
+          <span className="text-[0.6875rem] font-semibold">Hablar con un asesor</span>
         </a>
       </div>
 
