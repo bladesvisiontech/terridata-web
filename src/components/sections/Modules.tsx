@@ -46,7 +46,7 @@ export function Modules() {
             <StaggerItem as="li" key={module.id}>
               <Link
                 href={`${ROUTES.productos}#${module.id}`}
-                className="group flex h-full flex-col overflow-hidden rounded-2xl border border-ink/12 bg-cream-50 transition-[border-color,transform,box-shadow] duration-(--duration-base) ease-(--ease-entrance) hover:-translate-y-1 hover:border-green-500/45 hover:shadow-[0_18px_40px_-20px_rgba(11,8,17,0.3)]"
+                className="group flex h-full flex-col overflow-hidden rounded-2xl border border-ink/12 bg-cream-50 transition-[border-color,transform,box-shadow] duration-(--duration-base) ease-(--ease-entrance) hover:-translate-y-1 hover:border-green-500/45 hover:shadow-card"
               >
                 <span className="relative block">
                   <BrandImage

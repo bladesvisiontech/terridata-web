@@ -76,7 +76,7 @@ export function WhatsAppFab() {
             aria-label={`Escribir por WhatsApp al ${CONTACT.whatsapp.display}`}
             className={cn(
               "group flex h-14 items-center gap-0 rounded-full bg-green-500 pl-4 pr-4",
-              "text-cream-50 shadow-[0_8px_28px_-8px_rgba(11,8,17,0.45)]",
+              "text-cream-50 shadow-float",
               "transition-[background-color,gap,padding,transform] duration-(--duration-base)",
               "ease-(--ease-entrance) hover:bg-green-600 active:scale-95",
               // La etiqueta se despliega al pasar el cursor y también al

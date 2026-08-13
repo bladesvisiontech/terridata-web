@@ -191,6 +191,8 @@ export const BENEFITS = {
   ],
 } as const;
 
+export type AudienceIcon = "landmark" | "wallet" | "compass" | "landPlot" | "building" | "zap";
+
 export const AUDIENCE = {
   eyebrow: "Para quién es",
   headline: ["Diseñado para quienes", "administran el territorio."],
@@ -198,26 +200,32 @@ export const AUDIENCE = {
     {
       role: "Alcaldes",
       value: "Información estratégica para gobernar con mayor confianza",
+      icon: "landmark" satisfies AudienceIcon,
     },
     {
       role: "Secretarios de Hacienda",
       value: "Fortalecer el recaudo y optimizar la gestión tributaria",
+      icon: "wallet" satisfies AudienceIcon,
     },
     {
       role: "Secretarios de Planeación",
       value: "Información territorial confiable para planificar",
+      icon: "compass" satisfies AudienceIcon,
     },
     {
       role: "Gestores Catastrales",
       value: "Gestión integrada de la información predial",
+      icon: "landPlot" satisfies AudienceIcon,
     },
     {
       role: "Gobernaciones",
       value: "Visión regional para la toma de decisiones",
+      icon: "building" satisfies AudienceIcon,
     },
     {
       role: "Empresas de Servicios Públicos",
       value: "Información geográfica para infraestructura y redes",
+      icon: "zap" satisfies AudienceIcon,
     },
   ],
 } as const;
