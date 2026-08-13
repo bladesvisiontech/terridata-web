@@ -8,7 +8,6 @@ import { FinalCta } from "@/components/sections/FinalCta";
 import { Hero } from "@/components/sections/Hero";
 import { Modularity } from "@/components/sections/Modularity";
 import { Modules } from "@/components/sections/Modules";
-import { Showcase } from "@/components/sections/Showcase";
 import { TrustBand } from "@/components/sections/TrustBand";
 import { TechSurface } from "@/components/ui/TechSurface";
 
@@ -30,7 +29,6 @@ export default function HomePage() {
       </TechSurface>
 
       <Challenge />
-      <Showcase />
       <Ecosystem />
       <Modules />
       <Modularity />

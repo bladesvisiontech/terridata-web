@@ -80,26 +80,37 @@ export const TRUST = {
 
 export const CHALLENGE = {
   eyebrow: "El punto de partida",
-  headline: ["Cuando la información está", "dispersa, las decisiones", "también."],
+  /*
+   * El titular va en dos pesos, como en la referencia del cliente: la
+   * primera parte en regular y el remate en negrita. Se declaran por
+   * separado porque son dos tratamientos tipográficos distintos, no un
+   * corte de línea.
+   */
+  headlineLight: ["Cuando la información", "está dispersa,"],
+  headlineBold: ["las decisiones también."],
   body: "Las administraciones públicas gestionan a diario grandes volúmenes de información de distintas dependencias. Cuando esos datos permanecen aislados, aumentan los tiempos de respuesta, se duplican procesos y disminuye la capacidad de planificar el territorio.",
   items: [
     {
-      index: "01",
+      id: "informacion-dispersa",
+      icon: "/brand/retos/informaciondispersa.png",
       title: "Información dispersa",
       description: "Cada dependencia con su propia base de datos, sin un punto común.",
     },
     {
-      index: "02",
+      id: "procesos-manuales",
+      icon: "/brand/retos/procesosmanuales.png",
       title: "Procesos manuales",
       description: "Mayor carga operativa y menor productividad de los equipos técnicos.",
     },
     {
-      index: "03",
+      id: "datos-sin-aprovechar",
+      icon: "/brand/retos/datossinaprovechar.png",
       title: "Datos sin aprovechar",
       description: "La información existe, pero es difícil de consultar y de analizar.",
     },
     {
-      index: "04",
+      id: "decisiones-inciertas",
+      icon: "/brand/retos/incertidumbre.png",
       title: "Decisiones con incertidumbre",
       description: "Falta una visión integral del territorio en el momento de decidir.",
     },
@@ -123,39 +134,6 @@ export const ECOSYSTEM = {
   ],
   outcome:
     "Se acaba la digitación repetida entre dependencias, que es justamente donde nacen los errores y los reprocesos.",
-} as const;
-
-/**
- * Sección de capacidades.
- *
- * ⚠️ Cifras ilustrativas. Representan el tipo de resultado que
- * produce la plataforma, no datos de un municipio cliente.
- */
-export const SHOWCASE = {
-  eyebrow: "Así se ve por dentro",
-  headline: ["El territorio, sus datos", "y la norma que los rige."],
-  body: "No es un mapa con información al lado. Es el mismo predio consultado desde catastro, liquidado desde hacienda y certificado desde urbanismo, sin salir del sistema.",
-  diagnostic: {
-    label: "Diagnóstico catastral",
-    total: "1.284",
-    totalLabel: "Inconsistencias detectadas automáticamente",
-    findings: [
-      { name: "Predios sin cartografía", count: "512", percent: 40 },
-      { name: "Áreas incoherentes", count: "398", percent: 31 },
-      { name: "Destino económico erróneo", count: "374", percent: 29 },
-    ],
-  },
-  liquidation: {
-    label: "Liquidación del predial",
-    amount: "$1.845.200",
-    amountLabel: "Impuesto de la vigencia, con su cálculo trazable",
-    steps: [
-      { name: "Avalúo catastral", value: "$184.500.000" },
-      { name: "Tarifa por destino", value: "10,0 ‰" },
-      { name: "Límite de incremento", value: "Aplicado" },
-    ],
-    basis: "Ley 44 de 1990 · Ley 1995 de 2019",
-  },
 } as const;
 
 export const MODULES_SECTION = {
