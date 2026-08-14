@@ -129,6 +129,24 @@
   --container-shell: 82.5rem;
   --container-prose: 44rem;
 
+  /* --- Puente shadcn/ui (prueba) ---------------------------
+     Nombres semánticos que esperan los componentes de shadcn/ui
+     (Card, Badge, Separator), mapeados 1:1 a los tokens de marca
+     de arriba. Ni un hex nuevo: es el mismo verde/crema/tinta de
+     siempre, solo con los alias que la librería espera. Vive en
+     `Benefits.tsx` y `Audience.tsx` mientras se evalúa si el
+     lenguaje de shadcn se adopta más ampliamente. */
+  --color-card: var(--color-cream-50);
+  --color-card-foreground: var(--color-ink);
+  --color-primary: var(--color-green-500);
+  --color-primary-foreground: var(--color-cream-50);
+  --color-secondary: var(--color-cream-200);
+  --color-secondary-foreground: var(--color-green-800);
+  --color-muted: var(--color-cream-100);
+  --color-muted-foreground: var(--color-ink-500);
+  --color-accent: var(--color-green-50);
+  --color-accent-foreground: var(--color-green-700);
+
   /* --- Movimiento ----------------------------------------- */
   /* Un solo ritmo para todo el sitio. La salida siempre es
      más corta que la entrada (~65%). */

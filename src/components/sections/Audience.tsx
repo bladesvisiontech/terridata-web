@@ -1,10 +1,16 @@
 import { Stagger, StaggerItem } from "@/components/motion/Stagger";
 import { AudienceGlyph } from "@/components/ui/AudienceGlyph";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { AUDIENCE } from "@/content/home";
 
+/**
+ * PRUEBA — shadcn/ui. Mismo criterio que `Benefits.tsx`: Card de
+ * shadcn/ui en vez de la tarjeta a mano, colores de marca vía el
+ * puente de `tokens.css`.
+ */
 export function Audience() {
   return (
     <Section tone="paper">
@@ -21,19 +27,23 @@ export function Audience() {
           className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-3"
         >
           {AUDIENCE.items.map((item) => (
-            <StaggerItem
-              as="li"
-              key={item.role}
-              className="group flex h-full flex-col rounded-2xl border border-ink/12 p-7 transition-[border-color,background-color,transform,box-shadow] duration-(--duration-base) ease-(--ease-entrance) hover:-translate-y-1 hover:border-green-500/45 hover:bg-green-50/50 hover:shadow-card"
-            >
-              <span className="inline-flex size-11 shrink-0 items-center justify-center rounded-xl bg-green-50 text-green-700">
-                <AudienceGlyph icon={item.icon} />
-              </span>
+            <StaggerItem as="li" key={item.role}>
+              <Card className="h-full gap-3 transition-[box-shadow,border-color,transform] duration-(--duration-base) ease-(--ease-entrance) hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-md">
+                <CardHeader>
+                  <span className="inline-flex size-9 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                    <AudienceGlyph icon={item.icon} className="size-4.5" />
+                  </span>
+                  <CardTitle className="mt-4 text-display-sm text-ink">
+                    {item.role}
+                  </CardTitle>
+                </CardHeader>
 
-              <h3 className="mt-5 text-display-sm text-ink">{item.role}</h3>
-              <p className="mt-3 flex-1 text-[0.9375rem] leading-relaxed text-ink-500">
-                {item.value}
-              </p>
+                <CardContent>
+                  <p className="text-[0.9375rem] leading-relaxed text-ink-500">
+                    {item.value}
+                  </p>
+                </CardContent>
+              </Card>
             </StaggerItem>
           ))}
         </Stagger>
