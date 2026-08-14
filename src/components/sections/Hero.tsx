@@ -27,10 +27,10 @@ export function Hero() {
     <Section
       tone="paper"
       spacing="none"
-      className="pb-(--spacing-section) pt-12 lg:pt-16"
+      className="pb-(--spacing-section) pt-10 lg:pt-14"
     >
       <Container>
-        <div className="grid items-center gap-10 lg:grid-cols-[1fr_1.1fr] lg:gap-16">
+        <div className="grid items-center gap-10 lg:grid-cols-[1.05fr_1fr] lg:gap-16">
           {/*
            * En móvil el video va arriba y el texto debajo; en pantallas
            * anchas vuelven a su sitio.

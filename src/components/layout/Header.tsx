@@ -51,7 +51,7 @@ export function Header() {
         href="#contenido"
         className={cn(
           "sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100]",
-          "focus:rounded-full focus:bg-green-800 focus:px-5 focus:py-3",
+          "focus:rounded-md focus:bg-green-800 focus:px-5 focus:py-3",
           "focus:text-sm focus:font-semibold focus:text-cream-50",
         )}
       >

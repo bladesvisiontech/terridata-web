@@ -32,7 +32,7 @@ const SIZE_CLASS: Record<Size, string> = {
 
 const BASE =
   "group relative inline-flex items-center justify-center gap-2.5 font-semibold " +
-  "cursor-pointer select-none rounded-full " +
+  "cursor-pointer select-none rounded-md " +
   "transition-[background-color,border-color,color,transform] duration-(--duration-base) " +
   "ease-(--ease-entrance) active:scale-[0.98] " +
   "disabled:pointer-events-none disabled:opacity-50";

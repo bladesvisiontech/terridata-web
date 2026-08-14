@@ -51,15 +51,13 @@ function TrustMarqueeRow({ duplicate = false }: { duplicate?: boolean }) {
           <span
             className={
               item.muted
-                ? "font-mono text-[0.8125rem] text-ink-300"
-                : "text-base font-semibold text-ink-700"
+                ? "font-mono text-[0.8125rem] uppercase tracking-[0.08em] text-ink-300"
+                : "font-mono text-[0.8125rem] uppercase tracking-[0.08em] text-ink-700"
             }
           >
             {item.label}
           </span>
-          <span aria-hidden className="text-ink-300">
-            ·
-          </span>
+          <span aria-hidden className="h-3.5 w-px bg-ink/15" />
         </li>
       ))}
     </ul>
