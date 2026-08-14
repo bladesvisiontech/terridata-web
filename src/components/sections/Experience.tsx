@@ -12,11 +12,7 @@ export function Experience() {
       <Container>
         <div className="grid gap-14 lg:grid-cols-2 lg:gap-20">
           <div>
-            <SectionHeading
-              eyebrow={EXPERIENCE.eyebrow}
-              headline={EXPERIENCE.headline}
-              body={EXPERIENCE.body}
-            />
+            <SectionHeading headline={EXPERIENCE.headline} body={EXPERIENCE.body} />
             <Reveal delay={0.3} distance={26}>
               <BrandImage
                 media="equipoTecnico"

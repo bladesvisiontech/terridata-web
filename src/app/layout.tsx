@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { JetBrains_Mono, Montserrat } from "next/font/google";
+import { Geist, Geist_Mono } from "next/font/google";
 
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
@@ -9,24 +9,23 @@ import { COMPANY, DEFAULT_SEO, SITE_URL } from "@/lib/constants";
 import "./globals.css";
 
 /**
- * Montserrat es la tipografía del deck institucional.
- * JetBrains Mono se reserva para etiquetas, índices y cifras: es la
- * voz «de datos» del sistema.
+ * Geist es variable: un solo peso cubre todo el rango 100-900, lo que
+ * permite bajar el display a 700 sin cargar un archivo de fuente extra.
+ * Geist Mono se reserva para etiquetas, índices y cifras: es la voz
+ * «de datos» del sistema.
  *
  * `display: swap` evita el texto invisible mientras carga la fuente.
  */
-const montserrat = Montserrat({
-  variable: "--font-montserrat",
+const geistSans = Geist({
+  variable: "--font-geist-sans",
   subsets: ["latin"],
   display: "swap",
-  weight: ["400", "500", "600", "700", "800"],
 });
 
-const jetbrainsMono = JetBrains_Mono({
-  variable: "--font-jetbrains",
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
   subsets: ["latin"],
   display: "swap",
-  weight: ["400", "500"],
 });
 
 export const metadata: Metadata = {
@@ -77,7 +76,7 @@ export default function RootLayout({
   return (
     <html
       lang="es-CO"
-      className={`${montserrat.variable} ${jetbrainsMono.variable}`}
+      className={`${geistSans.variable} ${geistMono.variable}`}
     >
       <body className="flex min-h-dvh flex-col antialiased">
         <Header />

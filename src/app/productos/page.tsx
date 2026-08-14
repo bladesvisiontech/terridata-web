@@ -76,7 +76,6 @@ export default function ProductosPage() {
         <Container>
           <div className="grid gap-14 lg:grid-cols-[1fr_1fr] lg:gap-20">
             <SectionHeading
-              eyebrow={PRODUCTOS_INTRO.eyebrow}
               headline={PRODUCTOS_INTRO.headline}
               body={PRODUCTOS_INTRO.body}
             />
@@ -107,7 +106,6 @@ export default function ProductosPage() {
       <Section tone="paper" id="modulos">
         <Container>
           <SectionHeading
-            eyebrow={PRODUCTOS_MODULES.eyebrow}
             headline={PRODUCTOS_MODULES.headline}
             body={PRODUCTOS_MODULES.body}
             className="max-w-3xl"

@@ -19,7 +19,6 @@ export function Modules() {
       <Container>
         <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
           <SectionHeading
-            eyebrow={MODULES_SECTION.eyebrow}
             headline={MODULES_SECTION.headline}
             body={MODULES_SECTION.body}
             className="lg:max-w-2xl"
@@ -46,7 +45,7 @@ export function Modules() {
             <StaggerItem as="li" key={module.id}>
               <Link
                 href={`${ROUTES.productos}#${module.id}`}
-                className="group flex h-full flex-col overflow-hidden rounded-2xl border border-ink/12 bg-cream-50 transition-[border-color,transform,box-shadow] duration-(--duration-base) ease-(--ease-entrance) hover:-translate-y-1 hover:border-green-500/45 hover:shadow-card"
+                className="group flex h-full flex-col overflow-hidden rounded-lg border border-ink/12 bg-cream-50 transition-[border-color,transform] duration-(--duration-base) ease-(--ease-entrance) hover:-translate-y-1 hover:border-green-500/45"
               >
                 <span className="relative block">
                   <BrandImage

@@ -15,18 +15,14 @@ export function Cases() {
   return (
     <Section tone="paper">
       <Container>
-        <SectionHeading
-          eyebrow={CASES.eyebrow}
-          headline={CASES.headline}
-          className="max-w-3xl"
-        />
+        <SectionHeading headline={CASES.headline} className="max-w-3xl" />
 
         <Stagger as="ul" delay={0.15} className="mt-14 grid gap-5 lg:grid-cols-2">
           {CASES.items.map((item) => (
             <StaggerItem
               as="li"
               key={item.id}
-              className="flex flex-col overflow-hidden rounded-2xl border border-ink/12 bg-cream-50"
+              className="flex flex-col overflow-hidden rounded-lg border border-ink/12 bg-cream-50"
             >
               {/* Fotografía de ambientación, no del municipio real: el
                   material propio lo tiene que aportar el cliente. Por eso

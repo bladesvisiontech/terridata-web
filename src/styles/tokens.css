@@ -53,34 +53,57 @@
   --color-border-strong: color-mix(in oklab, var(--color-ink) 22%, transparent);
   --color-danger: #b42318;
 
+  /* --- Grises "hairline" -------------------------------------
+     Neutros puros para los bordes finos del nuevo lenguaje de layout
+     (estilo Vercel/Resend). `--color-border` sigue existiendo y sigue
+     usándose donde el borde debe llevar un tinte de marca; estos son
+     para las rejillas técnicas donde un borde con tinte violeta se
+     notaría. */
+  --color-line: color-mix(in oklab, var(--color-ink) 9%, transparent);
+  --color-line-strong: color-mix(in oklab, var(--color-ink) 16%, transparent);
+
+  /* --- Radios ------------------------------------------------
+     Escala cerrada: antes del rediseño convivían rounded-2xl,
+     rounded-full y clip-path sin una tabla declarada. Un solo criterio:
+     `sm` para chips/badges, `md` para tarjetas, `lg` para paneles
+     grandes (formularios, frames). Los botones siguen en pastilla
+     completa (`rounded-full`), es parte de la identidad ya validada. */
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1.25rem;
+
   /* --- Tipografía ----------------------------------------- */
-  --font-sans: var(--font-montserrat), ui-sans-serif, system-ui, sans-serif;
-  --font-mono: var(--font-jetbrains), ui-monospace, "SF Mono", monospace;
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, "SF Mono", monospace;
 
   /* Escala fluida. El mínimo está calculado contra 335 px de ancho útil (teléfono
      de 375 px menos los márgenes) y la línea móvil más larga del
-     titular, «su municipio en». Subirlo hace que refluya. */
+     titular, «su municipio en». Subirlo hace que refluya.
+
+     Geist es más angosta que Montserrat: se afloja el tracking negativo
+     un punto y se baja el peso de 800 a 700 (Geist se ve mejor sin
+     llegar a black) para que el titular no se vea apretado. */
   --text-display-xl: clamp(2.25rem, 1.15rem + 4.7vw, 5.5rem);
   --text-display-xl--line-height: 0.98;
-  --text-display-xl--letter-spacing: -0.035em;
-  --text-display-xl--font-weight: 800;
+  --text-display-xl--letter-spacing: -0.025em;
+  --text-display-xl--font-weight: 700;
 
   /* Deliberadamente por debajo del display-xl: los encabezados de
      sección no deben competir con el titular de apertura. */
   --text-display-lg: clamp(1.875rem, 1.35rem + 2.3vw, 3.25rem);
   --text-display-lg--line-height: 1.06;
-  --text-display-lg--letter-spacing: -0.028em;
-  --text-display-lg--font-weight: 800;
+  --text-display-lg--letter-spacing: -0.02em;
+  --text-display-lg--font-weight: 700;
 
   --text-display-md: clamp(1.625rem, 1.2rem + 1.8vw, 2.5rem);
   --text-display-md--line-height: 1.12;
-  --text-display-md--letter-spacing: -0.02em;
-  --text-display-md--font-weight: 700;
+  --text-display-md--letter-spacing: -0.015em;
+  --text-display-md--font-weight: 600;
 
   --text-display-sm: clamp(1.25rem, 1.05rem + 0.85vw, 1.75rem);
   --text-display-sm--line-height: 1.2;
-  --text-display-sm--letter-spacing: -0.015em;
-  --text-display-sm--font-weight: 700;
+  --text-display-sm--letter-spacing: -0.012em;
+  --text-display-sm--font-weight: 600;
 
   --text-lead: clamp(1.0625rem, 1rem + 0.35vw, 1.3125rem);
   --text-lead--line-height: 1.6;
@@ -128,24 +151,6 @@
   /* --- Contenedores --------------------------------------- */
   --container-shell: 82.5rem;
   --container-prose: 44rem;
-
-  /* --- Puente shadcn/ui (prueba) ---------------------------
-     Nombres semánticos que esperan los componentes de shadcn/ui
-     (Card, Badge, Separator), mapeados 1:1 a los tokens de marca
-     de arriba. Ni un hex nuevo: es el mismo verde/crema/tinta de
-     siempre, solo con los alias que la librería espera. Vive en
-     `Benefits.tsx` y `Audience.tsx` mientras se evalúa si el
-     lenguaje de shadcn se adopta más ampliamente. */
-  --color-card: var(--color-cream-50);
-  --color-card-foreground: var(--color-ink);
-  --color-primary: var(--color-green-500);
-  --color-primary-foreground: var(--color-cream-50);
-  --color-secondary: var(--color-cream-200);
-  --color-secondary-foreground: var(--color-green-800);
-  --color-muted: var(--color-cream-100);
-  --color-muted-foreground: var(--color-ink-500);
-  --color-accent: var(--color-green-50);
-  --color-accent-foreground: var(--color-green-700);
 
   /* --- Movimiento ----------------------------------------- */
   /* Un solo ritmo para todo el sitio. La salida siempre es

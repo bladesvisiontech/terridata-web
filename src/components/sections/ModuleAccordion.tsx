@@ -123,7 +123,7 @@ function ModuleRow({
     <li
       id={module.id}
       className={cn(
-        "scroll-mt-28 overflow-hidden rounded-2xl border transition-colors duration-(--duration-base)",
+        "scroll-mt-28 overflow-hidden rounded-lg border transition-colors duration-(--duration-base)",
         open ? "border-green-500/45 bg-cream-50" : "border-ink/12 bg-cream-50",
       )}
     >

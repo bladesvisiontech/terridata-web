@@ -11,11 +11,7 @@ export function Ecosystem() {
       <Container>
         <div className="grid items-center gap-10 lg:grid-cols-[1fr_1.05fr] lg:gap-16">
           <div className="order-2 lg:order-1">
-            <SectionHeading
-              eyebrow={ECOSYSTEM.eyebrow}
-              headline={ECOSYSTEM.headline}
-              body={ECOSYSTEM.body}
-            />
+            <SectionHeading headline={ECOSYSTEM.headline} body={ECOSYSTEM.body} />
 
             <Reveal delay={0.3}>
               <blockquote className="mt-9 border-l-2 border-green-500 pl-6">
