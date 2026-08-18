@@ -28,7 +28,7 @@ const TONE_CLASS = {
   // Transparente a propósito: deja ver el degradado del body.
   paper: "text-ink",
   cream: "bg-cream-200 text-ink",
-  deep: "bg-green-900 text-cream-50",
+  deep: "bg-green-500 text-cream-50",
 } as const;
 
 const SPACING_CLASS = {

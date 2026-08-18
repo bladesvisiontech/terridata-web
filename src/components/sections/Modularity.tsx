@@ -34,7 +34,7 @@ export function Modularity() {
       />
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 -z-10 bg-green-900/45"
+        className="pointer-events-none absolute inset-0 -z-10 bg-green-500/45"
       />
       <Container>
         <div className="max-w-4xl">
